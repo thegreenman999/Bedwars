@@ -124,6 +124,7 @@ public class MenyListener implements Listener {
 
                 playerClass.setArmorLevel(2);
                 playerClass.updateArmor();
+
                 player.closeInventory();
                 openShop(playerClass);
             }
@@ -135,6 +136,7 @@ public class MenyListener implements Listener {
 
                 playerClass.setArmorLevel(3);
                 playerClass.updateArmor();
+
                 player.closeInventory();
                 openShop(playerClass);
 
@@ -147,17 +149,88 @@ public class MenyListener implements Listener {
 
                 playerClass.setArmorLevel(4);
                 playerClass.updateArmor();
+
                 player.closeInventory();
                 openShop(playerClass);
             }
         }
+//        =============
+//            Axes
+//        =============
         else if (item.equals(woodaxe)) {
-            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.woodaxe.price"))) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.woodAxe.price"))) {
 
-                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.woodaxe.price"));
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.woodAxe.price"));
 
                 playerClass.addAxeLevel();
                 playerClass.updateAxe();
+
+                player.closeInventory();
+                openShop(playerClass);
+            }
+        }
+        else if (item.equals(ironaxe)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Item.ironAxe.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.ironAxe.price"));
+
+                playerClass.addAxeLevel();
+                playerClass.updateAxe();
+
+                player.closeInventory();
+                openShop(playerClass);
+
+            }
+        }
+        else if (item.equals(diaaxe)) {
+            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Item.diaAxe.price"))) {
+
+                removeItems(player, Material.EMERALD, shopConfig.getInt("Item.diaAxe.price"));
+
+                playerClass.addAxeLevel();
+                playerClass.updateAxe();
+
+                player.closeInventory();
+                openShop(playerClass);
+            }
+        }
+//        ===============
+//            pickaxes
+//        ===============
+        else if (item.equals(woodPick)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.woodPick.price"))) {
+
+
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.woodPick.price"));
+
+                playerClass.addAxeLevel();
+                playerClass.updateAxe();
+
+                player.closeInventory();
+                openShop(playerClass);
+            }
+        }
+        else if (item.equals(ironPick)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Item.ironPick.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.ironPick.price"));
+
+                playerClass.addPickaxeLevel();
+                playerClass.updatePickAxe();
+
+                player.closeInventory();
+                openShop(playerClass);
+
+            }
+        }
+        else if (item.equals(diaPick)) {
+            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Item.diaPick.price"))) {
+
+                removeItems(player, Material.EMERALD, shopConfig.getInt("Item.diaPick.price"));
+
+                playerClass.addPickaxeLevel();
+                playerClass.updatePickAxe();
+
                 player.closeInventory();
                 openShop(playerClass);
             }

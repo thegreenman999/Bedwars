@@ -61,10 +61,31 @@ public class PlayerClass {
             case 1:
                 player.getInventory().addItem(new ItemStack(Material.WOODEN_AXE));
                 break;
+            case 2:
+                player.getInventory().remove(new ItemStack(Material.WOODEN_AXE));
+                player.getInventory().addItem(new ItemStack(Material.IRON_AXE));
+                break;
+            case 3:
+                player.getInventory().remove(new ItemStack(Material.IRON_AXE));
+                player.getInventory().addItem(new ItemStack(Material.DIAMOND_AXE));
+                break;
         }
     }
 
     public void updatePickAxe() {
+        switch (pickaxeLevel) {
+            case 1:
+                player.getInventory().addItem(new ItemStack(Material.WOODEN_PICKAXE));
+                break;
+            case 2:
+                player.getInventory().remove(new ItemStack(Material.WOODEN_PICKAXE));
+                player.getInventory().addItem(new ItemStack(Material.IRON_PICKAXE));
+                break;
+            case 3:
+                player.getInventory().remove(new ItemStack(Material.IRON_PICKAXE));
+                player.getInventory().addItem(new ItemStack(Material.DIAMOND_PICKAXE));
+                break;
+        }
     }
 
     public Player getPlayer() {

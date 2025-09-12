@@ -28,14 +28,17 @@ Items:
     # this is in iron
     price: 6
   ironPick:
-    # this is in iron
+    # this is in gold
     price: 6
   diaPick:
     # this is in emeralds
     price: 6
   woolAxe:
+    # this is in iron
     price: 6
   ironAxe:
+    # this is in gold
     price: 6
   diaAxe:
+    # this is in emeralds
     price: 6
