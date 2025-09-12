@@ -1,0 +1,24 @@
+package me.thegreenman.bedwars.listeners.eventListener;
+
+import org.bukkit.Material;
+import org.bukkit.entity.Fireball;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.util.Vector;
+
+public class fireBallListener implements Listener {
+
+    @EventHandler
+    public void onPlayerInteractEvent(PlayerInteractEvent event) {
+        if (event.getItem() == null) {
+            return;
+        }
+        if (event.getItem().getType().equals(Material.FIRE_CHARGE)) {
+            //event.getPlayer().getLocation().get
+            Fireball fireball = event.getPlayer().getWorld().spawn(event.getPlayer().getEyeLocation(), Fireball.class);
+            fireball.setDirection(event.getPlayer().getEyeLocation().getDirection());
+            event.getItem().setAmount(event.getItem().getAmount() - 1);
+        }
+    }
+}

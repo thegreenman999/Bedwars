@@ -1,0 +1,41 @@
+Items:
+  wool:
+    # this is in iron
+    price: 4
+    amount: 16
+  terracotta:
+    # this is in iron
+    price: 12
+    amount: 16
+  endstone:
+    # this is in iron
+    price: 12
+    amount: 8
+  wood:
+    # this is in iron
+    price: 12
+    amount: 16
+  chainmailleg:
+    # this is in iron
+    price: 24
+  ironleg:
+    # this is in gold
+    price: 12
+  dialeg:
+    # this is in emeralds
+    price: 6
+  woolPick:
+    # this is in iron
+    price: 6
+  ironPick:
+    # this is in iron
+    price: 6
+  diaPick:
+    # this is in emeralds
+    price: 6
+  woolAxe:
+    price: 6
+  ironAxe:
+    price: 6
+  diaAxe:
+    price: 6

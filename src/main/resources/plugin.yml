@@ -1,0 +1,14 @@
+name: bedwars
+version: '08-24-4'
+main: me.thegreenman.bedwars.Bedwars
+api-version: '1.21.8'
+authors: [ thegreenman999 ]
+commands:
+  start:
+    usage: /<command>
+  adminmeny:
+    usage: /<command>
+  reload:
+    usage: /<command>
+  reset:
+    usage: /<command>

@@ -1,0 +1,125 @@
+GreenTeam:
+  spawn-loc:
+    x: -232.5
+    y: 2
+    z: 30.5
+    yaw: 100.0
+    pitch: 0.0
+  Bed-loc:
+    # loc of the foot of the bed
+    x: -233
+    y: 2
+    z: 27
+    # form the foot to head of the med
+    facing: west
+
+  ore-gen-loc:
+    x: -232.5
+    y: 2.5
+    z: 23.5
+
+  shop-loc:
+    x: -228.5
+    y: 2
+    z: 29.5
+    yaw: 90.0
+    pitch: 0.0
+
+  # Is in Hex color code
+  Armor-color: 5E7C16
+RedTeam:
+  spawn-loc:
+    x: -269.5
+    y: 2
+    z: 29.5
+    yaw: -100.0
+    pitch: 0.0
+  Bed-loc:
+    # loc of the foot of the bed
+    x: -270
+    y: 2
+    z: 26
+    # form the foot to head of the med
+    facing: east
+
+  ore-gen-loc:
+    x: -270
+    y: 2
+    z: 23
+
+  shop-loc:
+    x: -273.5
+    y: 2
+    z: 24.5
+    yaw: -100.0
+    pitch: 0.0
+
+  # Is in Hex color code
+  Armor-color: B02E26
+PinkTeam:
+  spawn-loc:
+    x: -247.5
+    y: 2
+    z: 50.5
+    yaw: 170.0
+    pitch: 0.0
+  Bed-loc:
+    # loc of the Head of the bed
+    x: -252
+    y: 2
+    z: 50
+    # form the foot to head of the med
+    facing: North
+
+  ore-gen-loc:
+    x: -255.5
+    y: 2
+    z: 50.5
+
+  shop-loc:
+    x: -253.5
+    y: 2
+    z: 54.5
+    yaw: -180.0
+    pitch: 0.0
+
+  # Is in Hex color code
+  Armor-color: F38BAA
+BlueTeam:
+  spawn-loc:
+    x: -255.5
+    y: 2
+    z: 7.5
+    yaw: -5.0
+    pitch: 0.0
+  Bed-loc:
+    # loc of the Head of the bed
+    x: -253
+    y: 2
+    z: 7
+    # form the foot to head of the bed
+    facing: South
+
+  ore-gen-loc:
+    x: -232
+    y: 2
+    z: 23
+
+  shop-loc:
+    x: -250.5
+    y: 2
+    z: 2.5
+    yaw: 0.0
+    pitch: 0.0
+
+  # Is in Hex color code
+  Armor-color: 3C44AA
+middle:
+  ore-gen1-loc:
+    x: -253.5
+    y: 2
+    z: 24.5
+  ore-gen2-loc:
+    x: -249.5
+    y: 2
+    z: 28.5

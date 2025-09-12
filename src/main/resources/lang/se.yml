@@ -1,0 +1,14 @@
+game-name: Bedwars
+
+bed-break-massage: <bed> är nu sönder
+
+Game-start-massage: Spelet har startat
+
+Shop-Price-massage: <item> pris är <price>
+
+Shop:
+  Menys:
+    Quick-name: Snabb köp
+    Blocks-name: Blocks
+    Utility-name: Verktyg
+    Tools-name: Verktyg

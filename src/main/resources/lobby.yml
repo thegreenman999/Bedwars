@@ -1,0 +1,44 @@
+GreenTeam:
+  # bottom south-east of Green teams starting box
+  pos1:
+    x: 8
+    y: -56
+    z: 21
+  # top north-wast of the Green teams starting box
+  pos2:
+    x: 5
+    y: -52
+    z: 17
+BlueTeam:
+  # bottom south-east of Blue teams starting box
+  pos1:
+    x: 1
+    y: -56
+    z: 13
+  # top north-wast of the Blue teams starting box
+  pos2:
+    x: -3
+    y: -52
+    z: 10
+RedTeam:
+  # bottom south-east of Red teams starting box
+  pos1:
+    x: -7
+    y: -56
+    z: 21
+  # top north-wast of the Red teams starting box
+  pos2:
+    x: -10
+    y: -52
+    z: 17
+PinkTeam:
+  # bottom south-east of Pink teams starting box
+  pos1:
+    x: 1
+    y: -56
+    z: 28
+  # top north-wast of the Pink teams starting box
+  pos2:
+    x: -3
+    y: -52
+    z: 25

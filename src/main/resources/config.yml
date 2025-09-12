@@ -1,0 +1,12 @@
+# the language file should be called <language>.yml ex. en_us.yml
+# don't include .yml in this
+lang: en_us
+# Defaulting to world if empty
+world-name: world
+
+#
+debug-mode: true
+
+auto-reset-map: false
+
+armor-leveling: true
