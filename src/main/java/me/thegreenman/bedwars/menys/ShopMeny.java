@@ -1,16 +1,17 @@
-package me.thegreenman.bedwars.Menys;
+package me.thegreenman.bedwars.menys;
 
 import me.thegreenman.bedwars.PlayerClass;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionBrewer;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionType;
+
+import java.util.List;
 
 import static me.thegreenman.bedwars.Bedwars.*;
 
@@ -195,18 +196,18 @@ public class ShopMeny {
 
 
         meny.setItem(19, switch (player.getPickaxeLevel()) {
-            case 1 -> woodPick;
-            case 2 -> ironPick;
-            case 3 -> diaPick;
-            case 4 -> null;
+            case 0 -> woodPick;
+            case 1 -> ironPick;
+            case 2 -> diaPick;
+            case 3 -> null;
             default -> throw new IllegalStateException("Unexpected value: " + player.getPickaxeLevel());
         });
         meny.setItem(20, shears);
         meny.setItem(21, switch (player.getAxeLevel()) {
-            case 1 -> woodaxe;
-            case 2 -> ironaxe;
-            case 3 -> diaaxe;
-            case 4 -> null;
+            case 0 -> woodaxe;
+            case 1 -> ironaxe;
+            case 2 -> diaaxe;
+            case 3 -> null;
             default -> throw new IllegalStateException("Unexpected value: " + player.getAxeLevel());
         });
 
@@ -272,6 +273,18 @@ public class ShopMeny {
             utilitysMeta.setItemName(lang.getString("Shop.Menys.Utility-name"));
         }
         utilitys.setItemMeta(utilitysMeta);
+
+        ItemMeta woolMeta = wool.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>")){
+                woolMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage").replace("<price>", String.valueOf(shopConfig.getInt("Items.wool.price")))));
+            }
+            else {
+                woolMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")));
+            }
+        }
+        wool.setItemMeta(woolMeta);
+
 
         PotionMeta invseeMeta = (PotionMeta) invsee.getItemMeta();
         invseeMeta.setBasePotionType(PotionType.INVISIBILITY);

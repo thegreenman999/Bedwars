@@ -5,8 +5,8 @@ import me.thegreenman.bedwars.commands.ResetCommand;
 import me.thegreenman.bedwars.commands.StartCommand;
 import me.thegreenman.bedwars.commands.reloadCommand;
 import me.thegreenman.bedwars.listeners.eventListener.*;
-import me.thegreenman.bedwars.Menys.AdminMeny;
-import me.thegreenman.bedwars.Menys.ShopMeny;
+import me.thegreenman.bedwars.menys.AdminMeny;
+import me.thegreenman.bedwars.menys.ShopMeny;
 import me.thegreenman.bedwars.tasks.ScorebordTask;
 import me.thegreenman.bedwars.utils.Logger;
 

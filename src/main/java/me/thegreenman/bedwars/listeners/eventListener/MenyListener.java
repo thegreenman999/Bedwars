@@ -2,7 +2,6 @@ package me.thegreenman.bedwars.listeners.eventListener;
 
 import me.thegreenman.bedwars.PlayerClass;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,7 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import static me.thegreenman.bedwars.Bedwars.shopConfig;
-import static me.thegreenman.bedwars.Menys.ShopMeny.*;
+import static me.thegreenman.bedwars.menys.ShopMeny.*;
 
 public class MenyListener implements Listener {
 
@@ -170,7 +169,7 @@ public class MenyListener implements Listener {
             }
         }
         else if (item.equals(ironaxe)) {
-            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Item.ironAxe.price"))) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.ironAxe.price"))) {
 
                 removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.ironAxe.price"));
 
@@ -183,9 +182,9 @@ public class MenyListener implements Listener {
             }
         }
         else if (item.equals(diaaxe)) {
-            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Item.diaAxe.price"))) {
+            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Items.diaAxe.price"))) {
 
-                removeItems(player, Material.EMERALD, shopConfig.getInt("Item.diaAxe.price"));
+                removeItems(player, Material.EMERALD, shopConfig.getInt("Items.diaAxe.price"));
 
                 playerClass.addAxeLevel();
                 playerClass.updateAxe();
@@ -203,15 +202,15 @@ public class MenyListener implements Listener {
 
                 removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.woodPick.price"));
 
-                playerClass.addAxeLevel();
-                playerClass.updateAxe();
+                playerClass.addPickaxeLevel();
+                playerClass.updatePickAxe();
 
                 player.closeInventory();
                 openShop(playerClass);
             }
         }
         else if (item.equals(ironPick)) {
-            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Item.ironPick.price"))) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.ironPick.price"))) {
 
                 removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.ironPick.price"));
 
@@ -224,9 +223,9 @@ public class MenyListener implements Listener {
             }
         }
         else if (item.equals(diaPick)) {
-            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Item.diaPick.price"))) {
+            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Items.diaPick.price"))) {
 
-                removeItems(player, Material.EMERALD, shopConfig.getInt("Item.diaPick.price"));
+                removeItems(player, Material.EMERALD, shopConfig.getInt("Items.diaPick.price"));
 
                 playerClass.addPickaxeLevel();
                 playerClass.updatePickAxe();

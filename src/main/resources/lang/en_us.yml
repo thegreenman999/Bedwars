@@ -4,7 +4,7 @@ bed-break-massage: <bed> is now broken
 
 Game-start-massage: The game has started
 
-Shop-Price-massage: <item> price is <price>
+Shop-Price-massage: Price is <price>
 
 Shop:
   Menys:

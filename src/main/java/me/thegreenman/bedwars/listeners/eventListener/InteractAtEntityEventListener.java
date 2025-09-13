@@ -2,7 +2,7 @@ package me.thegreenman.bedwars.listeners.eventListener;
 
 import me.thegreenman.bedwars.PlayerClass;
 
-import me.thegreenman.bedwars.Menys.ShopMeny;
+import me.thegreenman.bedwars.menys.ShopMeny;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

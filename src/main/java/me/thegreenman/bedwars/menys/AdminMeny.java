@@ -1,4 +1,4 @@
-package me.thegreenman.bedwars.Menys;
+package me.thegreenman.bedwars.menys;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
