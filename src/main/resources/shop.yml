@@ -44,3 +44,11 @@ Items:
     price: 6
     price-type: iron
   shears:
+    price: 20
+    price-type: iron
+  godAppen:
+    price: 20
+    price-type: iron
+  fireCharge:
+    price: 20
+    price-type: iron

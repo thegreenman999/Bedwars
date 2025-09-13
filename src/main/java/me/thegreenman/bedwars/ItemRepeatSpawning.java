@@ -39,12 +39,12 @@ public class ItemRepeatSpawning implements Listener {
         Bukkit.getScheduler().runTaskLater(main, this::startSpawnGold, 20L);
         Bukkit.getScheduler().runTaskLater(main, this::startSpawnEmerald, 20L);
 
-        redItemSpawnLoc = new Location (world, gameConfig.getDouble("RedTeam.ore-gen-loc-x"), gameConfig.getDouble("RedTeam.ore-gen-loc-y"), gameConfig.getDouble("RedTeam.ore-gen-loc-z"));
-        greenItemSpawnLoc = new Location (world, gameConfig.getDouble("GreenTeam.ore-gen-loc-x"), gameConfig.getDouble("GreenTeam.ore-gen-loc-y"), gameConfig.getDouble("GreenTeam.ore-gen-loc-z"));
-        blueItemSpawnLoc = new Location (world, gameConfig.getDouble("BlueTeam.ore-gen-loc-x"), gameConfig.getDouble("BlueTeam.ore-gen-loc-y"), gameConfig.getDouble("BlueTeam.ore-gen-loc-z"));
-        pinkItemSpawnLoc = new Location (world, gameConfig.getDouble("PinkTeam.ore-gen-loc-x"), gameConfig.getDouble("PinkTeam.ore-gen-loc-y"), gameConfig.getDouble("PinkTeam.ore-gen-loc-z"));
-        emeraldItemSpawnLoc = new Location (world, gameConfig.getDouble("middle.ore-gen1-loc-x"), gameConfig.getDouble("middle.ore-gen1-loc-y"), gameConfig.getDouble("middle.ore-gen1-loc-z"));
-        emerald2ItemSpawnLoc = new Location (world, gameConfig.getDouble("middle.ore-gen2-loc-x"), gameConfig.getDouble("middle.ore-gen2-loc-y"), gameConfig.getDouble("middle.ore-gen2-loc-z"));
+        redItemSpawnLoc = new Location (world, gameConfig.getDouble("RedTeam.ore-gen-loc.x"), gameConfig.getDouble("RedTeam.ore-gen-loc.y"), gameConfig.getDouble("RedTeam.ore-gen-loc.z"));
+        greenItemSpawnLoc = new Location (world, gameConfig.getDouble("GreenTeam.ore-gen-loc.x"), gameConfig.getDouble("GreenTeam.ore-gen-loc.y"), gameConfig.getDouble("GreenTeam.ore-gen-loc.z"));
+        blueItemSpawnLoc = new Location (world, gameConfig.getDouble("BlueTeam.ore-gen-loc.x"), gameConfig.getDouble("BlueTeam.ore-gen-loc.y"), gameConfig.getDouble("BlueTeam.ore-gen-loc.z"));
+        pinkItemSpawnLoc = new Location (world, gameConfig.getDouble("PinkTeam.ore-gen-loc.x"), gameConfig.getDouble("PinkTeam.ore-gen-loc.y"), gameConfig.getDouble("PinkTeam.ore-gen-loc.z"));
+        emeraldItemSpawnLoc = new Location (world, gameConfig.getDouble("middle.ore-gen1-loc.x"), gameConfig.getDouble("middle.ore-gen1-loc.y"), gameConfig.getDouble("middle.ore-gen1-loc.z"));
+        emerald2ItemSpawnLoc = new Location (world, gameConfig.getDouble("middle.ore-gen2-loc.x"), gameConfig.getDouble("middle.ore-gen2-loc.y"), gameConfig.getDouble("middle.ore-gen2-loc.z"));
     }
 
 

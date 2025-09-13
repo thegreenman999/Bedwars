@@ -57,6 +57,10 @@ public class MenyListener implements Listener {
             player.closeInventory();
             openUtilityMeny(playerClass);
         }
+        else if (item.equals(weapens)) {
+            player.closeInventory();
+            openWeaponsMeny(playerClass);
+        }
 
 //      =======================
 //             Blocks

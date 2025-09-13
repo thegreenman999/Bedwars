@@ -49,7 +49,8 @@ public class ShopMeny {
 
     // Utilitys
     public static ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE);
-    public static ItemStack charge = new ItemStack(Material.FIRE_CHARGE);
+    public static ItemStack fCharge = new ItemStack(Material.FIRE_CHARGE);
+    public static ItemStack wCharge = new ItemStack(Material.WIND_CHARGE);
     public static ItemStack tnt = new ItemStack(Material.TNT);
     public static ItemStack shears = new ItemStack(Material.SHEARS);
     public static ItemStack ender = new ItemStack(Material.ENDER_PEARL);
@@ -60,6 +61,7 @@ public class ShopMeny {
     public static ItemStack blocks = new ItemStack(Material.TERRACOTTA);
     public static ItemStack tools = new ItemStack(Material.STONE_PICKAXE);
     public static ItemStack utilitys = new ItemStack(Material.TNT);
+    public static ItemStack weapens = new ItemStack(Material.STONE_SWORD);
 
     //potions
     public static ItemStack invsee = new ItemStack(Material.POTION);
@@ -74,6 +76,7 @@ public class ShopMeny {
         meny.setItem(1, blocks);
         meny.setItem(2, tools);
         meny.setItem(3, utilitys);
+        meny.setItem(4, weapens);
 
         // Glass panes
         meny.setItem(9, new ItemStack(Material.GREEN_STAINED_GLASS_PANE));
@@ -130,7 +133,7 @@ public class ShopMeny {
 
         meny.setItem(41, gapple);
         meny.setItem(42, ender);
-        meny.setItem(43, charge);
+        meny.setItem(43, fCharge);
         meny.setItem(25, tnt);
         meny.setItem(34, water);
 
@@ -151,7 +154,7 @@ public class ShopMeny {
         meny.setItem(1, blocks);
         meny.setItem(2, tools);
         meny.setItem(3, utilitys);
-
+        meny.setItem(4, weapens);
 
         // Glass panes
         meny.setItem(9, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
@@ -183,6 +186,7 @@ public class ShopMeny {
         meny.setItem(1, blocks);
         meny.setItem(2, tools);
         meny.setItem(3, utilitys);
+        meny.setItem(4, weapens);
 
         // Glass panes
         meny.setItem(9, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
@@ -212,22 +216,20 @@ public class ShopMeny {
             default -> throw new IllegalStateException("Unexpected value: " + player.getAxeLevel());
         });
 
-        // Swords
-        meny.setItem(22, stonesword);
-        meny.setItem(23, ironsword);
-        meny.setItem(24, diaesword);
+
 
         player.getPlayer().openInventory(meny);
     }
 
     public static void openUtilityMeny(PlayerClass player) {
-        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Shop");
+        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Utilitys");
 
         // menys
         meny.setItem(0, quick);
         meny.setItem(1, blocks);
         meny.setItem(2, tools);
         meny.setItem(3, utilitys);
+        meny.setItem(4, weapens);
 
         // Glass panes
         meny.setItem(9, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
@@ -241,13 +243,40 @@ public class ShopMeny {
         meny.setItem(17, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
 
         meny.setItem(19, gapple);
-        meny.setItem(20, charge);
+        meny.setItem(20, fCharge);
         meny.setItem(21, tnt);
         meny.setItem(22, ender);
         meny.setItem(23, water);
 
 
         player.getPlayer().openInventory(meny);
+    }
+    public static void openWeaponsMeny(PlayerClass player) {
+        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Weapons");
+
+        // menys
+        meny.setItem(0, quick);
+        meny.setItem(1, blocks);
+        meny.setItem(2, tools);
+        meny.setItem(3, utilitys);
+        meny.setItem(4, weapens);
+
+        // Glass panes
+        meny.setItem(9, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(10, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(11, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(12, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(13, new ItemStack(Material.GREEN_STAINED_GLASS_PANE));
+        meny.setItem(14, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(15, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(16, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+        meny.setItem(17, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
+
+        // Swords
+        meny.setItem(19, stonesword);
+        meny.setItem(20, ironsword);
+        meny.setItem(21, diaesword);
+
     }
 
     public ShopMeny() {
@@ -275,8 +304,11 @@ public class ShopMeny {
         }
         utilitys.setItemMeta(utilitysMeta);
 
-        setBlocksLore();
-        setToolsLore();
+        ItemMeta weaponsMeta = weapens.getItemMeta();
+        if (lang.getString("Shop.Menys.Weapons-name") != null){
+            weaponsMeta.setItemName(lang.getString("Shop.Menys.Weapons-name"));
+        }
+        weapens.setItemMeta(weaponsMeta);
 
         PotionMeta invseeMeta = (PotionMeta) invsee.getItemMeta();
         invseeMeta.setBasePotionType(PotionType.INVISIBILITY);
@@ -285,6 +317,10 @@ public class ShopMeny {
         PotionMeta jumpMeta = (PotionMeta) jump.getItemMeta();
         jumpMeta.setBasePotionType(PotionType.LEAPING);
         jump.setItemMeta(jumpMeta);
+
+        setBlocksLore();
+        setToolsLore();
+        setUtilitysLore();
     }
 
     public void setBlocksLore() {
@@ -441,5 +477,13 @@ public class ShopMeny {
             }
         }
         shears.setItemMeta(shearsMeta);
+    }
+
+    public void setUtilitysLore() {
+
+    }
+
+    public void setWeapensLore() {
+
     }
 }
