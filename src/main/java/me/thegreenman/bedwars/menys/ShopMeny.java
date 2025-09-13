@@ -5,6 +5,7 @@ import me.thegreenman.bedwars.PlayerClass;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Villager;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -12,6 +13,7 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionType;
 
 import java.util.List;
+import java.util.Objects;
 
 import static me.thegreenman.bedwars.Bedwars.*;
 
@@ -274,17 +276,8 @@ public class ShopMeny {
         }
         utilitys.setItemMeta(utilitysMeta);
 
-        ItemMeta woolMeta = wool.getItemMeta();
-        if (lang.getString("Shop-Price-massage") != null) {
-            if (lang.getString("Shop-Price-massage").contains("<price>")){
-                woolMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage").replace("<price>", String.valueOf(shopConfig.getInt("Items.wool.price")))));
-            }
-            else {
-                woolMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")));
-            }
-        }
-        wool.setItemMeta(woolMeta);
-
+        setBlocksLore();
+        setToolsLore();
 
         PotionMeta invseeMeta = (PotionMeta) invsee.getItemMeta();
         invseeMeta.setBasePotionType(PotionType.INVISIBILITY);
@@ -295,4 +288,148 @@ public class ShopMeny {
         jump.setItemMeta(jumpMeta);
     }
 
+    public void setBlocksLore() {
+        ItemMeta woolMeta = wool.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.wool.price-type") != null){
+                woolMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.wool.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.wool.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " wool");
+            }
+        }
+        wool.setItemMeta(woolMeta);
+
+        ItemMeta terracottaMeta = terracotta.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.terracotta.price-type") != null){
+                terracottaMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.terracotta.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.terracotta.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " terracotta");
+            }
+        }
+        terracotta.setItemMeta(terracottaMeta);
+
+        ItemMeta endstoneMeta = endstone.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.endstone.price-type") != null){
+                endstoneMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.endstone.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.endstone.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " endstone");
+            }
+        }
+        endstone.setItemMeta(endstoneMeta);
+
+        ItemMeta woodMeta = wood.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.wood.price-type") != null){
+                woodMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.wood.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.wood.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " wood");
+            }
+        }
+        wood.setItemMeta(woodMeta);
+    }
+
+    public void setToolsLore() {
+        ItemMeta woodenPickMeta = woodPick.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && lang.getString("Shop-Price-massage").contains("<type>") && shopConfig.getString("Items.woodPick.price-type") != null){
+                woodenPickMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.woodPick.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.woodPick.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " wooden pickaxe");
+            }
+        }
+        woodPick.setItemMeta(woodenPickMeta);
+
+        ItemMeta ironPickMeta = ironPick.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.ironPick.price-type") != null){
+                ironPickMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironPick.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironPick.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " iron pickaxe");
+            }
+        }
+        ironPick.setItemMeta(ironPickMeta);
+
+        ItemMeta diaPickMeta = diaPick.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.diaPick.price-type") != null){
+                ironPickMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.diaPick.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaPick.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " dia pickaxe");
+            }
+        }
+        diaPick.setItemMeta(diaPickMeta);
+
+        ItemMeta woodenAxeMeta = woodaxe.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.woodAxe.price-type") != null){
+                woodenAxeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.woodAxe.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.woodAxe.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " wooden axe");
+            }
+        }
+        woodaxe.setItemMeta(woodenAxeMeta);
+
+        ItemMeta ironAxeMeta = ironaxe.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.ironAxe.price-type") != null){
+                ironAxeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironAxe.price"))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironAxe.price-type")))
+                        )));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " iron axe");
+            }
+        }
+        ironaxe.setItemMeta(ironAxeMeta);
+
+        ItemMeta diaAxeMeta = diaaxe.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.diaAxe.price-type") != null) {
+                diaAxeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.diaAxe.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaAxe.price-type")))));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " dia axe");
+            }
+        }
+        diaaxe.setItemMeta(diaAxeMeta);
+
+
+    }
 }

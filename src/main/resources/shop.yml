@@ -1,45 +1,57 @@
 Items:
   wool:
-    # this is in iron
     price: 4
+    price-type: iron
     amount: 16
   terracotta:
     # this is in iron
     price: 12
+    price-type: iron
     amount: 16
   endstone:
     # this is in iron
     price: 12
+    price-type: iron
     amount: 8
   wood:
     # this is in iron
     price: 12
+    price-type: iron
     amount: 16
 
   chainmailleg:
     # this is in iron
     price: 24
+    price-type: iron
   ironleg:
     # this is in gold
     price: 12
+    price-type: iron
   dialeg:
     # this is in emeralds
     price: 6
-  woolPick:
+    price-type: iron
+  woodPick:
     # this is in iron
     price: 6
+    price-type: iron
   ironPick:
     # this is in gold
     price: 6
+    price-type: iron
   diaPick:
     # this is in emeralds
     price: 6
-  woolAxe:
+    price-type: iron
+  woodAxe:
     # this is in iron
     price: 6
+    price-type: iron
   ironAxe:
     # this is in gold
     price: 6
+    price-type: iron
   diaAxe:
     # this is in emeralds
     price: 6
+    price-type: iron
