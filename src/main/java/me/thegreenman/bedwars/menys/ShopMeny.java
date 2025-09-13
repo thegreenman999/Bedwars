@@ -5,7 +5,6 @@ import me.thegreenman.bedwars.PlayerClass;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Villager;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -430,6 +429,17 @@ public class ShopMeny {
         }
         diaaxe.setItemMeta(diaAxeMeta);
 
-
+        ItemMeta shearsMeta = shears.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.diaAxe.price-type") != null) {
+                shearsMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.diaAxe.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaAxe.price-type")))));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " shears");
+            }
+        }
+        shears.setItemMeta(shearsMeta);
     }
 }
