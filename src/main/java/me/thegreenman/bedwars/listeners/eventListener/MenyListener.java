@@ -33,7 +33,7 @@ public class MenyListener implements Listener {
         ItemStack item = event.getCurrentItem();
         String title = event.getView().getTitle();
 //        if (event.getClickedInventory().)
-        if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools")) {
+        if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools") && !title.equals("Weapons")) {
             return;
         }
 
@@ -58,7 +58,6 @@ public class MenyListener implements Listener {
             openUtilityMeny(playerClass);
         }
         else if (item.equals(weapens)) {
-            player.closeInventory();
             openWeaponsMeny(playerClass);
         }
 
@@ -236,6 +235,39 @@ public class MenyListener implements Listener {
 
                 player.closeInventory();
                 openShop(playerClass);
+            }
+        }
+//        ===============
+//             Sword
+//        ===============
+        else if (item.equals(stonesword)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.stoneSword.price"))) {
+
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.stoneSword.price"));
+
+                player.getInventory().remove(Material.WOODEN_SWORD);
+                player.getInventory().addItem(stonesword);
+
+            }
+        }
+        else if (item.equals(ironsword)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.ironSword.price"))) {
+
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.ironSword.price"));
+
+                player.getInventory().remove(stonesword);
+                player.getInventory().addItem(ironsword);
+
+            }
+        }
+        else if (item.equals(diasword)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.diaSword.price"))) {
+
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.diaSword.price"));
+
+                player.getInventory().remove(ironsword);
+                player.getInventory().addItem(diasword);
+
             }
         }
 

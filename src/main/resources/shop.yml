@@ -25,6 +25,7 @@ Items:
   dialeg:
     price: 6
     price-type: iron
+
   woodPick:
     price: 6
     price-type: iron
@@ -34,6 +35,7 @@ Items:
   diaPick:
     price: 6
     price-type: iron
+
   woodAxe:
     price: 6
     price-type: iron
@@ -43,6 +45,17 @@ Items:
   diaAxe:
     price: 6
     price-type: iron
+
+  stoneSword:
+    price: 10
+    price-type: iron
+  ironSword:
+    price: 7
+    price-type: gold
+  diaSword:
+    price: 2
+    price-type: emerald
+
   shears:
     price: 20
     price-type: iron

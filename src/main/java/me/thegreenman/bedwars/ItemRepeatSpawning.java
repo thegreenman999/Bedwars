@@ -89,7 +89,7 @@ public class ItemRepeatSpawning implements Listener {
     public void spawnItemAtLocation(Location location, ItemStack itemStack) {
         World world = location.getWorld();
         if (world != null) {
-            world.dropItemNaturally(location, itemStack);
+            world.dropItem(location, itemStack);
         } else {
             Logger.log("Invalid world for the specified location.");
         }

@@ -27,7 +27,7 @@ public class ShopMeny {
     // swords
     public static ItemStack stonesword = new ItemStack(Material.STONE_SWORD);
     public static ItemStack ironsword = new ItemStack(Material.IRON_SWORD);
-    public static ItemStack diaesword = new ItemStack(Material.DIAMOND_SWORD);
+    public static ItemStack diasword = new ItemStack(Material.DIAMOND_SWORD);
 
     // leggings
     public static ItemStack chainmailLeg = new ItemStack(Material.CHAINMAIL_LEGGINGS);
@@ -98,7 +98,7 @@ public class ShopMeny {
         // Swords
         meny.setItem(20, stonesword);
         meny.setItem(29, ironsword);
-        meny.setItem(38, diaesword);
+        meny.setItem(38, diasword);
 
         if (config.getBoolean("armor-leveling")) {
             meny.setItem(21, switch (player.getArmorLevel()) {
@@ -147,7 +147,9 @@ public class ShopMeny {
     }
 
     public static void openBlocksMeny(PlayerClass player) {
-        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Shop");
+        player.getPlayer().getOpenInventory().getTopInventory().clear();
+
+        Inventory meny = player.getPlayer().getOpenInventory().getTopInventory();
 
         // menys
         meny.setItem(0, quick);
@@ -175,11 +177,13 @@ public class ShopMeny {
         meny.setItem(22, wood);
 
 
-        player.getPlayer().openInventory(meny);
+        player.getPlayer().updateInventory();
     }
 
     public static void openToolsMeny(PlayerClass player) {
-        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Shop");
+        player.getPlayer().getOpenInventory().getTopInventory().clear();
+
+        Inventory meny = player.getPlayer().getOpenInventory().getTopInventory();
 
         // menys
         meny.setItem(0, quick);
@@ -218,11 +222,13 @@ public class ShopMeny {
 
 
 
-        player.getPlayer().openInventory(meny);
+        player.getPlayer().updateInventory();
     }
 
     public static void openUtilityMeny(PlayerClass player) {
-        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Utilitys");
+        player.getPlayer().getOpenInventory().getTopInventory().clear();
+
+        Inventory meny = player.getPlayer().getOpenInventory().getTopInventory();
 
         // menys
         meny.setItem(0, quick);
@@ -249,10 +255,12 @@ public class ShopMeny {
         meny.setItem(23, water);
 
 
-        player.getPlayer().openInventory(meny);
+        player.getPlayer().updateInventory();
     }
     public static void openWeaponsMeny(PlayerClass player) {
-        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Weapons");
+        player.getPlayer().getOpenInventory().getTopInventory().clear();
+
+        Inventory meny = player.getPlayer().getOpenInventory().getTopInventory();
 
         // menys
         meny.setItem(0, quick);
@@ -275,8 +283,11 @@ public class ShopMeny {
         // Swords
         meny.setItem(19, stonesword);
         meny.setItem(20, ironsword);
-        meny.setItem(21, diaesword);
+        meny.setItem(21, diasword);
 
+        meny.setItem(28, bow);
+
+        player.getPlayer().updateInventory();
     }
 
     public ShopMeny() {
@@ -321,6 +332,49 @@ public class ShopMeny {
         setBlocksLore();
         setToolsLore();
         setUtilitysLore();
+        setWeapensLore();
+
+        ItemMeta chainLegMeta = chainmailLeg.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.chainmailleg.price-type") != null){
+                chainLegMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.chainmailleg.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.chainmailleg.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " chainmail leggings");
+            }
+        }
+        chainmailLeg.setItemMeta(chainLegMeta);
+
+        ItemMeta ironLegMeta = ironleg.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.ironleg.price-type") != null){
+                ironLegMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironleg.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironleg.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " iron leggings");
+            }
+        }
+        ironleg.setItemMeta(ironLegMeta);
+
+        ItemMeta diaLegMeta = dialeg.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.dialeg.price-type") != null){
+                diaLegMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.dialeg.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.dialeg.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " dia leggings");
+            }
+        }
+        dialeg.setItemMeta(diaLegMeta);
     }
 
     public void setBlocksLore() {
@@ -484,6 +538,45 @@ public class ShopMeny {
     }
 
     public void setWeapensLore() {
+        ItemMeta stoneSwordMeta = stonesword.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.stoneSword.price-type") != null) {
+                stoneSwordMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.stoneSword.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.stoneSword.price-type")))));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " stone Sword");
+            }
+        }
+        stonesword.setItemMeta(stoneSwordMeta);
+
+        ItemMeta ironSwordMeta = ironsword.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.ironSword.price-type") != null) {
+                ironSwordMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironSword.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironSword.price-type")))));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " iron Sword");
+            }
+        }
+        ironsword.setItemMeta(ironSwordMeta);
+
+        ItemMeta diaSwordMeta = diasword.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.diaSword.price-type") != null) {
+                diaSwordMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.diaSword.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaSword.price-type")))));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " dia Sword");
+            }
+        }
+        diasword.setItemMeta(diaSwordMeta);
 
     }
+
 }
