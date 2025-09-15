@@ -68,8 +68,15 @@ public class ShopMeny {
     public static ItemStack jump = new ItemStack(Material.POTION);
 
 
-    public static void openShop(PlayerClass player) {
-        Inventory meny = Bukkit.createInventory(player.getPlayer(), 6*9, "Shop");
+    public static void openShop(PlayerClass player, Boolean fromInventory) {
+        Inventory meny = null;
+        if (fromInventory) {
+            player.getPlayer().getOpenInventory().getTopInventory().clear();
+            meny = player.getPlayer().getOpenInventory().getTopInventory();
+        }
+        else {
+            meny = Bukkit.createInventory(player.getPlayer(), 6 * 9, "Shop");
+        }
 
         // menys
         meny.setItem(0, quick);
@@ -143,7 +150,12 @@ public class ShopMeny {
         meny.setItem(23, bow);
         meny.setItem(32, arrows);
 
-        player.getPlayer().openInventory(meny);
+        if (fromInventory){
+            player.getPlayer().updateInventory();
+        }
+        else {
+            player.getPlayer().openInventory(meny);
+        }
     }
 
     public static void openBlocksMeny(PlayerClass player) {

@@ -2,11 +2,8 @@ package me.thegreenman.bedwars.commands;
 
 import me.thegreenman.bedwars.Bedwars;
 
-import org.apache.maven.artifact.versioning.OverConstrainedVersionException;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.SuspiciousSand;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,7 +27,7 @@ public class ResetCommand implements CommandExecutor, Listener {
             return false;
         }
 
-        reset();
+        ResetCommand.reset();
         Bedwars.main.reset();
 
         return true;

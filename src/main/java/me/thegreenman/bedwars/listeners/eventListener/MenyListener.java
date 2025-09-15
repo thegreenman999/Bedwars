@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import static me.thegreenman.bedwars.Bedwars.debug;
 import static me.thegreenman.bedwars.Bedwars.shopConfig;
 import static me.thegreenman.bedwars.menys.ShopMeny.*;
 
@@ -42,19 +43,15 @@ public class MenyListener implements Listener {
 //                Menys
 //          ===================
         if (item.equals(quick)) {
-            player.closeInventory();
-            openShop(playerClass);
+            openShop(playerClass, true);
         }
         else if (item.equals(blocks)) {
-            player.closeInventory();
             openBlocksMeny(playerClass);
         }
         else if (item.equals(tools)) {
-            player.closeInventory();
             openToolsMeny(playerClass);
         }
         else if (item.equals(utilitys)) {
-            player.closeInventory();
             openUtilityMeny(playerClass);
         }
         else if (item.equals(weapens)) {
@@ -127,8 +124,7 @@ public class MenyListener implements Listener {
                 playerClass.setArmorLevel(2);
                 playerClass.updateArmor();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
             }
         }
         else if (item.equals(ironleg)) {
@@ -139,8 +135,8 @@ public class MenyListener implements Listener {
                 playerClass.setArmorLevel(3);
                 playerClass.updateArmor();
 
-                player.closeInventory();
-                openShop(playerClass);
+
+                openShop(playerClass, true);
 
             }
         }
@@ -152,8 +148,7 @@ public class MenyListener implements Listener {
                 playerClass.setArmorLevel(4);
                 playerClass.updateArmor();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
             }
         }
 //        =============
@@ -167,8 +162,7 @@ public class MenyListener implements Listener {
                 playerClass.addAxeLevel();
                 playerClass.updateAxe();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
             }
         }
         else if (item.equals(ironaxe)) {
@@ -179,8 +173,7 @@ public class MenyListener implements Listener {
                 playerClass.addAxeLevel();
                 playerClass.updateAxe();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
 
             }
         }
@@ -192,8 +185,7 @@ public class MenyListener implements Listener {
                 playerClass.addAxeLevel();
                 playerClass.updateAxe();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
             }
         }
 //        ===============
@@ -208,8 +200,7 @@ public class MenyListener implements Listener {
                 playerClass.addPickaxeLevel();
                 playerClass.updatePickAxe();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
             }
         }
         else if (item.equals(ironPick)) {
@@ -220,8 +211,8 @@ public class MenyListener implements Listener {
                 playerClass.addPickaxeLevel();
                 playerClass.updatePickAxe();
 
-                player.closeInventory();
-                openShop(playerClass);
+
+                openShop(playerClass, true);
 
             }
         }
@@ -233,8 +224,7 @@ public class MenyListener implements Listener {
                 playerClass.addPickaxeLevel();
                 playerClass.updatePickAxe();
 
-                player.closeInventory();
-                openShop(playerClass);
+                openShop(playerClass, true);
             }
         }
 //        ===============

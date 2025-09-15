@@ -22,7 +22,7 @@ public class InteractAtEntityEventListener implements Listener {
 
         if (event.getRightClicked().getType().equals(EntityType.VILLAGER)) {
             if (event.getRightClicked().getName().equals("Shop")) {
-                ShopMeny.openShop(playerClass);
+                ShopMeny.openShop(playerClass, false);
             }
         }
 
