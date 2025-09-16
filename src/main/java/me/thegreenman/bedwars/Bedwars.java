@@ -130,7 +130,6 @@ public final class Bedwars extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        spawnEntitys.forEach(Entity::remove);
         reset();
         ResetCommand.reset();
 
@@ -142,7 +141,11 @@ public final class Bedwars extends JavaPlugin {
 
     public void reset() {
         gameOn = false;
+
         PlayerClass.reset();
+
+        spawnEntitys.forEach(Entity::remove);
+
         removeBeds(new Location(world, gameConfig.getInt("PinkTeam.Bed-loc.x"), gameConfig.getInt("PinkTeam.Bed-loc.y"), gameConfig.getInt("PinkTeam.Bed-loc.z")), gameConfig.getString("PinkTeam.Bed-loc.facing"));
         removeBeds(new Location(world, gameConfig.getInt("GreenTeam.Bed-loc.x"), gameConfig.getInt("GreenTeam.Bed-loc.y"), gameConfig.getInt("GreenTeam.Bed-loc.z")), gameConfig.getString("GreenTeam.Bed-loc.facing"));
         removeBeds(new Location(world, gameConfig.getInt("RedTeam.Bed-loc.x"), gameConfig.getInt("RedTeam.Bed-loc.y"), gameConfig.getInt("RedTeam.Bed-loc.z")), gameConfig.getString("RedTeam.Bed-loc.facing"));

@@ -2,6 +2,7 @@ package me.thegreenman.bedwars.listeners.eventListener;
 
 import me.thegreenman.bedwars.PlayerClass;
 import org.bukkit.Material;
+import org.bukkit.Utility;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,6 +18,12 @@ public class MenyListener implements Listener {
     @EventHandler
     public void onInventoryClickEvent(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+
+        String title = event.getView().getTitle();
+        if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools") && !title.equals("Weapons")) {
+            return;
+        }
+
         PlayerClass playerClass = PlayerClass.findplayer(player.getUniqueId());
 
         if (playerClass == null) {
@@ -30,13 +37,9 @@ public class MenyListener implements Listener {
             event.setCancelled(true);
         }
 
-
         ItemStack item = event.getCurrentItem();
-        String title = event.getView().getTitle();
 //        if (event.getClickedInventory().)
-        if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools") && !title.equals("Weapons")) {
-            return;
-        }
+
 
 
 //          ===================
@@ -236,28 +239,56 @@ public class MenyListener implements Listener {
                 removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.stoneSword.price"));
 
                 player.getInventory().remove(Material.WOODEN_SWORD);
-                player.getInventory().addItem(stonesword);
+                player.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
 
             }
         }
         else if (item.equals(ironsword)) {
-            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.ironSword.price"))) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.ironSword.price"))) {
 
-                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.ironSword.price"));
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.ironSword.price"));
 
-                player.getInventory().remove(stonesword);
-                player.getInventory().addItem(ironsword);
+                player.getInventory().remove(Material.STONE_SWORD);
+                player.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
 
             }
         }
         else if (item.equals(diasword)) {
-            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.diaSword.price"))) {
+            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Items.diaSword.price"))) {
 
-                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.diaSword.price"));
+                removeItems(player, Material.EMERALD, shopConfig.getInt("Items.diaSword.price"));
 
-                player.getInventory().remove(ironsword);
-                player.getInventory().addItem(diasword);
+                player.getInventory().remove(Material.IRON_SWORD);
+                player.getInventory().addItem(new ItemStack(Material.DIAMOND_SWORD));
 
+            }
+        }
+//        =====================
+//              Utilitys
+//        =====================
+        else if (item.equals(shears)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.shears.price")) || !player.getInventory().contains(Material.SHEARS)) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.shears.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.SHEARS));
+
+            }
+        }
+        else if (item.equals(fireCharge)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.fireCharge.price"))) {
+
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.fireCharge.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.FIRE_CHARGE));
+            }
+        }
+        else if (item.equals(gapple)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.goldApple.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.goldApple.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
             }
         }
 

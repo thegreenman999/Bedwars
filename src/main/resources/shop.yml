@@ -24,7 +24,7 @@ Items:
     price-type: iron
   dialeg:
     price: 6
-    price-type: iron
+    price-type: emerald
 
   woodPick:
     price: 6
@@ -59,9 +59,9 @@ Items:
   shears:
     price: 20
     price-type: iron
-  godAppen:
-    price: 20
-    price-type: iron
+  goldApple:
+    price: 3
+    price-type: gold
   fireCharge:
-    price: 20
+    price: 40
     price-type: iron

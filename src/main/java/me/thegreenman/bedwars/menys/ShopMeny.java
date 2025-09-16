@@ -49,8 +49,8 @@ public class ShopMeny {
 
     // Utilitys
     public static ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE);
-    public static ItemStack fCharge = new ItemStack(Material.FIRE_CHARGE);
-    public static ItemStack wCharge = new ItemStack(Material.WIND_CHARGE);
+    public static ItemStack fireCharge = new ItemStack(Material.FIRE_CHARGE);
+    public static ItemStack windCharge = new ItemStack(Material.WIND_CHARGE);
     public static ItemStack tnt = new ItemStack(Material.TNT);
     public static ItemStack shears = new ItemStack(Material.SHEARS);
     public static ItemStack ender = new ItemStack(Material.ENDER_PEARL);
@@ -140,7 +140,7 @@ public class ShopMeny {
 
         meny.setItem(41, gapple);
         meny.setItem(42, ender);
-        meny.setItem(43, fCharge);
+        meny.setItem(43, fireCharge);
         meny.setItem(25, tnt);
         meny.setItem(34, water);
 
@@ -261,7 +261,7 @@ public class ShopMeny {
         meny.setItem(17, new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
 
         meny.setItem(19, gapple);
-        meny.setItem(20, fCharge);
+        meny.setItem(20, fireCharge);
         meny.setItem(21, tnt);
         meny.setItem(22, ender);
         meny.setItem(23, water);
@@ -508,9 +508,9 @@ public class ShopMeny {
         if (lang.getString("Shop-Price-massage") != null) {
             if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.ironAxe.price-type") != null){
                 ironAxeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
-                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironAxe.price"))
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironAxe.price")))
                         .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironAxe.price-type")))
-                        )));
+                        ));
             }
             else {
                 main.getLogger().severe(lang.getString("Shop-setLore-massage") + " iron axe");
@@ -523,7 +523,8 @@ public class ShopMeny {
             if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.diaAxe.price-type") != null) {
                 diaAxeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
                         .replace("<price>", String.valueOf(shopConfig.getInt("Items.diaAxe.price")))
-                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaAxe.price-type")))));
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaAxe.price-type")))
+                ));
             }
             else {
                 main.getLogger().severe(lang.getString("Shop-setLore-massage") + " dia axe");
@@ -533,10 +534,11 @@ public class ShopMeny {
 
         ItemMeta shearsMeta = shears.getItemMeta();
         if (lang.getString("Shop-Price-massage") != null) {
-            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.diaAxe.price-type") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.shears.price-type") != null) {
                 shearsMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
-                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.diaAxe.price")))
-                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.diaAxe.price-type")))));
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.shears.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.shears.price-type")))
+                ));
             }
             else {
                 main.getLogger().severe(lang.getString("Shop-setLore-massage") + " shears");
@@ -546,7 +548,33 @@ public class ShopMeny {
     }
 
     public void setUtilitysLore() {
+        ItemMeta gappleMeta = gapple.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.goldApple.price-type") != null) {
+                gappleMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.goldApple.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.goldApple.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " gold apple");
+            }
+        }
+        gapple.setItemMeta(gappleMeta);
 
+        ItemMeta fireChargeMeta = fireCharge.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.fireCharge.price-type") != null) {
+                fireChargeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.fireCharge.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.fireCharge.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " fire charge");
+            }
+        }
+        fireCharge.setItemMeta(fireChargeMeta);
     }
 
     public void setWeapensLore() {
@@ -555,7 +583,8 @@ public class ShopMeny {
             if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.stoneSword.price-type") != null) {
                 stoneSwordMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
                         .replace("<price>", String.valueOf(shopConfig.getInt("Items.stoneSword.price")))
-                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.stoneSword.price-type")))));
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.stoneSword.price-type")))
+                ));
             }
             else {
                 main.getLogger().severe(lang.getString("Shop-setLore-massage") + " stone Sword");
@@ -568,7 +597,8 @@ public class ShopMeny {
             if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.ironSword.price-type") != null) {
                 ironSwordMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
                         .replace("<price>", String.valueOf(shopConfig.getInt("Items.ironSword.price")))
-                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironSword.price-type")))));
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.ironSword.price-type")))
+                ));
             }
             else {
                 main.getLogger().severe(lang.getString("Shop-setLore-massage") + " iron Sword");
