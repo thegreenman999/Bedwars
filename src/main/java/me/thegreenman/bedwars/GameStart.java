@@ -96,7 +96,9 @@ public class GameStart {
         if (lang.getString("Game-start-massage") == null) {
             main.getLogger().severe("language file has a empty part called Game-start-massage");
         }
-        Bukkit.broadcastMessage(lang.getString("Game-start-massage"));
+        else {
+            Bukkit.broadcastMessage(lang.getString("Game-start-massage"));
+        }
 
         main.getServer().getScheduler().runTaskLater(main,
                 bukkitTask -> {

@@ -2,7 +2,6 @@ package me.thegreenman.bedwars;
 
 
 import me.thegreenman.bedwars.utils.Logger;
-import static me.thegreenman.bedwars.Bedwars.gameConfig;
 
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
@@ -26,30 +25,22 @@ public class TeamClass {
 
     public TeamClass(List<PlayerClass> players, String color) {
         this.players = players;
+
         for (PlayerClass playerClass : players) {
             playerClass.Team = color;
         }
+
         this.color = color;
         Logger.log("Team " + color + ": " + players.toString());
 
         int[] colorRGB = new int[]{255, 255, 255};
-        switch (color.toLowerCase()) {
-            case "green":
-                colorRGB = parseHexColor(Bedwars.gameConfig.getString("GreenTeam.Armor-color"));
-                break;
-            case "pink":
-                colorRGB = parseHexColor(Bedwars.gameConfig.getString("PinkTeam.Armor-color"));
-                break;
-            case "red":
-                colorRGB = parseHexColor(Bedwars.gameConfig.getString("RedTeam.Armor-color"));
-
-                break;
-            case "blue":
-                colorRGB = parseHexColor(Bedwars.gameConfig.getString("BlueTeam.Armor-color"));
-                break;
-            default:
-
-        }
+        colorRGB = switch (color.toLowerCase()) {
+            case "green" -> parseHexColor(Bedwars.gameConfig.getString("GreenTeam.Armor-color"));
+            case "pink" -> parseHexColor(Bedwars.gameConfig.getString("PinkTeam.Armor-color"));
+            case "red" -> parseHexColor(Bedwars.gameConfig.getString("RedTeam.Armor-color"));
+            case "blue" -> parseHexColor(Bedwars.gameConfig.getString("BlueTeam.Armor-color"));
+            default -> colorRGB;
+        };
         armorColor = Color.fromRGB(colorRGB[0], colorRGB[1], colorRGB[2]);
 
         addarmor();

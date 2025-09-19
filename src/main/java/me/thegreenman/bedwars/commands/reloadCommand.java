@@ -14,7 +14,6 @@ public class reloadCommand implements CommandExecutor {
 
         Bedwars.main.reload();
 
-
         return true;
     }
 }

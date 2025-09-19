@@ -144,7 +144,7 @@ public class ShopMeny {
         meny.setItem(25, tnt);
         meny.setItem(34, water);
 
-        meny.setItem(24, invsee);
+//        meny.setItem(24, invsee);
         meny.setItem(33, jump);
 
         meny.setItem(23, bow);

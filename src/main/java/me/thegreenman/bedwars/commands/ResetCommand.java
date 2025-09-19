@@ -23,9 +23,9 @@ public class ResetCommand implements CommandExecutor, Listener {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (!(sender instanceof Player player)) {
-            return false;
-        }
+//        if (!(sender instanceof Player player)) {
+//            return false;
+//        }
 
         ResetCommand.reset();
         Bedwars.main.reset();
