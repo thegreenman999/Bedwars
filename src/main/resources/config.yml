@@ -10,3 +10,7 @@ debug-mode: true
 auto-reset-map: false
 
 armor-leveling: true
+
+
+# this is in seconds
+respawnTime: 20

@@ -4,6 +4,7 @@ import static me.thegreenman.bedwars.Bedwars.gameOn;
 import static me.thegreenman.bedwars.Bedwars.main;
 import me.thegreenman.bedwars.Bedwars;
 
+import me.thegreenman.bedwars.GameStart;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -34,7 +35,13 @@ public class BedBreakListener implements Listener {
 
         switch (event.getBlock().getType()) {
             case RED_BED:
-
+                GameStart.TeamRed.removeBed();
+            case GREEN_BED:
+                GameStart.TeamGreen.removeBed();
+            case PINK_BED:
+                GameStart.TeamPink.removeBed();
+            case BLUE_BED:
+                GameStart.TeamBlue.removeBed();
         }
 
         event.setDropItems(false);

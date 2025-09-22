@@ -69,7 +69,7 @@ public class MenyListener implements Listener {
 
                 removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.wool.price"));
 
-                player.getInventory().addItem(switch (playerClass.Team.toLowerCase()) {
+                player.getInventory().addItem(switch (playerClass.Team.getColor().toLowerCase()) {
                     case "green" -> new ItemStack(Material.GREEN_WOOL, shopConfig.getInt("Items.wool.amount"));
                     case "red" -> new ItemStack(Material.RED_WOOL, shopConfig.getInt("Items.wool.amount"));
                     case "pink" -> new ItemStack(Material.PINK_WOOL, shopConfig.getInt("Items.wool.amount"));
@@ -84,7 +84,7 @@ public class MenyListener implements Listener {
 
                 removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.terracotta.price"));
 
-                player.getInventory().addItem(switch (playerClass.Team.toLowerCase()) {
+                player.getInventory().addItem(switch (playerClass.Team.getColor().toLowerCase()) {
                     case "green" ->
                             new ItemStack(Material.GREEN_TERRACOTTA, shopConfig.getInt("Items.terracotta.amount"));
                     case "red" -> new ItemStack(Material.RED_TERRACOTTA, shopConfig.getInt("Items.terracotta.amount"));

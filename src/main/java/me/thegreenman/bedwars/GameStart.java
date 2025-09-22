@@ -24,16 +24,9 @@ public class GameStart {
     // start ore generators
 
 
-    public static boolean RedBed = false;
     public static TeamClass TeamRed = null;
-
-    public static boolean BlueBed = false;
     public static TeamClass TeamBlue = null;
-
-    public static boolean PinkBed = false;
     public static TeamClass TeamPink = null;
-
-    public static boolean GreenBed = false;
     public static TeamClass TeamGreen = null;
 
 
@@ -49,7 +42,6 @@ public class GameStart {
 
         if (!greenTeamPlayers.isEmpty()) {
             TeamGreen = new TeamClass(PlayerClass.toPlayerclass(greenTeamPlayers), "Green");
-            GreenBed = true;
         }
 
         // red Team
@@ -60,7 +52,6 @@ public class GameStart {
 
         if (!redTeamPlayers.isEmpty()) {
             TeamRed = new TeamClass(PlayerClass.toPlayerclass(redTeamPlayers), "Red");
-            RedBed = true;
         }
 
         // blue Team
@@ -71,7 +62,6 @@ public class GameStart {
 
         if (!blueTeamPlayers.isEmpty()) {
             TeamBlue = new TeamClass(PlayerClass.toPlayerclass(blueTeamPlayers), "Blue");
-            BlueBed = true;
         }
 
         // pink Team
@@ -82,14 +72,13 @@ public class GameStart {
 
         if (!pinkTeamPlayers.isEmpty()) {
             TeamPink = new TeamClass(PlayerClass.toPlayerclass(pinkTeamPlayers), "Pink");
-            PinkBed = true;
         }
 
         gameOn = true;
 
         Bedsetup();
         spawnVillagers();
-//        main.startScorebord();
+        main.startScorebord();
 
         new ItemRepeatSpawning();
 

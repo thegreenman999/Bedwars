@@ -10,12 +10,10 @@ import me.thegreenman.bedwars.menys.ShopMeny;
 import me.thegreenman.bedwars.tasks.ScorebordTask;
 import me.thegreenman.bedwars.utils.Logger;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Explosive;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -126,6 +124,8 @@ public final class Bedwars extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InteractAtEntityEventListener(), this);
 
         getServer().getPluginManager().registerEvents(new MenyListener(), this);
+
+        world.setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
     }
 
     @Override

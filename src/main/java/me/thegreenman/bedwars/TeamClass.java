@@ -17,6 +17,8 @@ public class TeamClass {
     private final List<PlayerClass> players;
     private Color armorColor;
 
+    private Boolean bed = true;
+
     private ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
     private ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
     private ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -27,7 +29,7 @@ public class TeamClass {
         this.players = players;
 
         for (PlayerClass playerClass : players) {
-            playerClass.Team = color;
+            playerClass.Team = this;
         }
 
         this.color = color;
@@ -82,6 +84,14 @@ public class TeamClass {
 
     public String getColor() {
         return color;
+    }
+
+    public boolean getBed() {
+        return bed;
+    }
+
+    public void removeBed() {
+        bed = false;
     }
 
     private static int[] parseHexColor(String hex) {

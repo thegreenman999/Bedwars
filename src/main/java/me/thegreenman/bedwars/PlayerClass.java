@@ -20,7 +20,7 @@ public class PlayerClass {
     private int pickaxeLevel = 0;
     private int axeLevel = 0;
 
-    public String Team;
+    public TeamClass Team;
 
     public PlayerClass(Player player) {
         this.player = player;
@@ -146,6 +146,15 @@ public class PlayerClass {
     public static PlayerClass findplayer(UUID playerUUID) {
         for (PlayerClass playerClass : playerClasses) {
             if (playerClass.getPlayer().getUniqueId().equals(playerUUID)) {
+                return playerClass;
+            }
+        }
+        return null;
+    }
+
+    public static PlayerClass findplayer(String playerName) {
+        for (PlayerClass playerClass : playerClasses) {
+            if (playerClass.getPlayer().getName().equals(playerName)) {
                 return playerClass;
             }
         }

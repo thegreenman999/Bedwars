@@ -78,11 +78,16 @@ public class ScorebordTask implements Runnable {
         kills.setPrefix("kills: ");
         kills.setSuffix("0");
 
+        Team space = scoreboard.registerNewTeam("space");
+        String spaceTeamKey = ChatColor.DARK_PURPLE.toString();
+
+        space.addEntry(spaceTeamKey);
 
         objective.getScore(blueTeamKey).setScore(6);
         objective.getScore(redTeamKey).setScore(5);
         objective.getScore(pinkTeamKey).setScore(4);
         objective.getScore(greenTeamKey).setScore(3);
+        objective.getScore(spaceTeamKey).setScore(2);
         objective.getScore(killsTeamKey).setScore(1);
         player.setScoreboard(scoreboard);
     }
@@ -91,16 +96,37 @@ public class ScorebordTask implements Runnable {
         Scoreboard scoreboard = player.getPlayer().getScoreboard();
 
         Team blue = scoreboard.getTeam("blue");
-        blue.setSuffix(GameStart.BlueBed ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamBlue.getPlayers().size()));
+        if (GameStart.TeamBlue != null && !GameStart.TeamBlue.getPlayers().isEmpty()) {
+            blue.setSuffix(GameStart.TeamBlue.getBed() ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamBlue.getPlayers().size()));
+        }
+        else {
+            blue.setSuffix(ChatColor.RED + "x");
+        }
 
-        Team pink = scoreboard.getTeam("blue");
-        pink.setSuffix(GameStart.PinkBed ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamPink.getPlayers().size()));
+        Team pink = scoreboard.getTeam("pink");
+        if (GameStart.TeamPink != null && !GameStart.TeamPink.getPlayers().isEmpty()) {
+            pink.setSuffix(GameStart.TeamPink.getBed() ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamPink.getPlayers().size()));
+        }
+        else {
+            pink.setSuffix(ChatColor.RED + "x");
+        }
 
-        Team green = scoreboard.getTeam("blue");
-        green.setSuffix(GameStart.GreenBed ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamGreen.getPlayers().size()));
+        Team green = scoreboard.getTeam("green");
+        if (GameStart.TeamGreen != null && !GameStart.TeamGreen.getPlayers().isEmpty()) {
+            green.setSuffix(GameStart.TeamGreen.getBed() ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamGreen.getPlayers().size()));
+        }
+        else {
+            green.setSuffix(ChatColor.RED + "x");
+        }
 
-        Team red = scoreboard.getTeam("blue");
-        red.setSuffix(GameStart.RedBed ? ChatColor.GREEN + "✓" :  ChatColor.RED + String.valueOf(GameStart.TeamRed.getPlayers().size()));
+
+        Team red = scoreboard.getTeam("red");
+        if (GameStart.TeamRed != null && !GameStart.TeamRed.getPlayers().isEmpty()) {
+            red.setSuffix(GameStart.TeamRed.getBed() ? ChatColor.GREEN + "✓" : ChatColor.RED + String.valueOf(GameStart.TeamRed.getPlayers().size()));
+        }
+        else {
+            red.setSuffix(ChatColor.RED + "x");
+        }
 
         Team kills = scoreboard.getTeam("kills");
         kills.setSuffix(String.valueOf(player.getKills()));

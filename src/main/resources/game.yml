@@ -123,3 +123,8 @@ middle:
     x: -249.5
     y: 2
     z: 28.5
+
+spec-spawn-loc:
+  x: -251.5
+  y: 14
+  z: 26.5
