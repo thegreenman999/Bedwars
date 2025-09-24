@@ -126,6 +126,8 @@ public final class Bedwars extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenyListener(), this);
 
         world.setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
+        world.setGameRule(GameRule.KEEP_INVENTORY, true);
+
     }
 
     @Override
@@ -143,6 +145,8 @@ public final class Bedwars extends JavaPlugin {
         gameOn = false;
 
         PlayerClass.reset();
+
+        GameStart.itemRepeatSpawning.reset();
 
         spawnEntitys.forEach(Entity::remove);
 

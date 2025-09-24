@@ -109,4 +109,17 @@ public class ItemRepeatSpawning implements Listener {
         return false;
     }
 
+    public void reset() {
+        if (SpawnEmerald != null && !SpawnEmerald.isCancelled()) {
+            SpawnEmerald.cancel();
+        }
+        if (SpawnGold != null && !SpawnGold.isCancelled()) {
+            SpawnGold.cancel();
+        }
+        if (SpawnIron != null && !SpawnIron.isCancelled()) {
+            SpawnIron.cancel();
+        }
+
+    }
+
 }

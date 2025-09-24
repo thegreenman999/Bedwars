@@ -29,7 +29,7 @@ public class GameStart {
     public static TeamClass TeamPink = null;
     public static TeamClass TeamGreen = null;
 
-
+    public static ItemRepeatSpawning itemRepeatSpawning = null;
     
 
     public GameStart() {
@@ -42,6 +42,14 @@ public class GameStart {
 
         if (!greenTeamPlayers.isEmpty()) {
             TeamGreen = new TeamClass(PlayerClass.toPlayerclass(greenTeamPlayers), "Green");
+
+            placeBed(new Location(world, gameConfig.getInt("GreenTeam.Bed-loc.x"), gameConfig.getInt("GreenTeam.Bed-loc.y"), gameConfig.getInt("GreenTeam.Bed-loc.z")),
+                    BlockFace.valueOf(gameConfig.getString("GreenTeam.Bed-loc.facing").toUpperCase()),
+                    Material.GREEN_BED
+            );
+            if (Bedwars.debug){
+                Logger.log("Green Bed");
+            }
         }
 
         // red Team
@@ -52,6 +60,14 @@ public class GameStart {
 
         if (!redTeamPlayers.isEmpty()) {
             TeamRed = new TeamClass(PlayerClass.toPlayerclass(redTeamPlayers), "Red");
+
+            placeBed(new Location(world, gameConfig.getInt("RedTeam.Bed-loc.x"), gameConfig.getInt("RedTeam.Bed-loc.y"), gameConfig.getInt("RedTeam.Bed-loc.z")),
+                    BlockFace.valueOf(gameConfig.getString("RedTeam.Bed-loc.facing").toUpperCase()),
+                    Material.RED_BED
+            );
+            if (Bedwars.debug){
+                Logger.log("Red Bed");
+            }
         }
 
         // blue Team
@@ -62,6 +78,14 @@ public class GameStart {
 
         if (!blueTeamPlayers.isEmpty()) {
             TeamBlue = new TeamClass(PlayerClass.toPlayerclass(blueTeamPlayers), "Blue");
+
+            placeBed(new Location(world, gameConfig.getInt("BlueTeam.Bed-loc.x"), gameConfig.getInt("BlueTeam.Bed-loc.y"), gameConfig.getInt("BlueTeam.Bed-loc.z")),
+                    BlockFace.valueOf(gameConfig.getString("BlueTeam.Bed-loc.facing").toUpperCase()),
+                    Material.BLUE_BED
+            );
+            if (Bedwars.debug){
+                Logger.log("Blue Bed");
+            }
         }
 
         // pink Team
@@ -72,15 +96,22 @@ public class GameStart {
 
         if (!pinkTeamPlayers.isEmpty()) {
             TeamPink = new TeamClass(PlayerClass.toPlayerclass(pinkTeamPlayers), "Pink");
+
+            placeBed(new Location(world, gameConfig.getInt("PinkTeam.Bed-loc.x"), gameConfig.getInt("PinkTeam.Bed-loc.y"), gameConfig.getInt("PinkTeam.Bed-loc.z")),
+                    BlockFace.valueOf(gameConfig.getString("PinkTeam.Bed-loc.facing").toUpperCase()),
+                    Material.PINK_BED
+            );
+            if (Bedwars.debug){
+                Logger.log("Pink Bed");
+            }
         }
 
         gameOn = true;
 
-        Bedsetup();
         spawnVillagers();
         main.startScorebord();
 
-        new ItemRepeatSpawning();
+        itemRepeatSpawning = new ItemRepeatSpawning();
 
         if (lang.getString("Game-start-massage") == null) {
             main.getLogger().severe("language file has a empty part called Game-start-massage");
@@ -132,36 +163,6 @@ public class GameStart {
         }
 
 
-    }
-    public void Bedsetup() {
-        placeBed(new Location(world, gameConfig.getInt("GreenTeam.Bed-loc.x"), gameConfig.getInt("GreenTeam.Bed-loc.y"), gameConfig.getInt("GreenTeam.Bed-loc.z")),
-                BlockFace.valueOf(gameConfig.getString("GreenTeam.Bed-loc.facing").toUpperCase()),
-                Material.GREEN_BED
-        );
-        if (Bedwars.debug){
-            Logger.log("Green Bed");
-        }
-        placeBed(new Location(world, gameConfig.getInt("RedTeam.Bed-loc.x"), gameConfig.getInt("RedTeam.Bed-loc.y"), gameConfig.getInt("RedTeam.Bed-loc.z")),
-                BlockFace.valueOf(gameConfig.getString("RedTeam.Bed-loc.facing").toUpperCase()),
-                Material.RED_BED
-        );
-        if (Bedwars.debug){
-            Logger.log("Red Bed");
-        }
-        placeBed(new Location(world, gameConfig.getInt("BlueTeam.Bed-loc.x"), gameConfig.getInt("BlueTeam.Bed-loc.y"), gameConfig.getInt("BlueTeam.Bed-loc.z")),
-                BlockFace.valueOf(gameConfig.getString("BlueTeam.Bed-loc.facing").toUpperCase()),
-                Material.BLUE_BED
-        );
-        if (Bedwars.debug){
-            Logger.log("Blue Bed");
-        }
-        placeBed(new Location(world, gameConfig.getInt("PinkTeam.Bed-loc.x"), gameConfig.getInt("PinkTeam.Bed-loc.y"), gameConfig.getInt("PinkTeam.Bed-loc.z")),
-                BlockFace.valueOf(gameConfig.getString("PinkTeam.Bed-loc.facing").toUpperCase()),
-                Material.PINK_BED
-        );
-        if (Bedwars.debug){
-            Logger.log("Pink Bed");
-        }
     }
 
     private void tpTeam(List<Player> team, Location location) {

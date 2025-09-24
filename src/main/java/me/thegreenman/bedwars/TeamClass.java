@@ -15,14 +15,14 @@ public class TeamClass {
     private final String color;
     private Location spawnLoc;
     private final List<PlayerClass> players;
-    private Color armorColor;
+    public Color armorColor;
 
     private Boolean bed = true;
 
-    private ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
-    private ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
-    private ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
-    private ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
+    public ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+    public ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+    public ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+    public ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
     private ItemStack sword = new ItemStack(Material.WOODEN_SWORD);
 
     public TeamClass(List<PlayerClass> players, String color) {
@@ -43,12 +43,9 @@ public class TeamClass {
             case "blue" -> parseHexColor(Bedwars.gameConfig.getString("BlueTeam.Armor-color"));
             default -> colorRGB;
         };
+
         armorColor = Color.fromRGB(colorRGB[0], colorRGB[1], colorRGB[2]);
 
-        addarmor();
-    }
-
-    private void addarmor() {
         LeatherArmorMeta bootsItemMeta = (LeatherArmorMeta) boots.getItemMeta();
         bootsItemMeta.setColor(armorColor);
         boots.setItemMeta(bootsItemMeta);
@@ -66,9 +63,10 @@ public class TeamClass {
         helmetItemMeta.addEnchant(Enchantment.AQUA_AFFINITY, 1, true);
         helmet.setItemMeta(helmetItemMeta);
 
+        addarmor();
+    }
 
-
-
+    private void addarmor() {
         for (PlayerClass player : players) {
             player.getPlayer().getInventory().setBoots(boots);
             player.getPlayer().getInventory().setLeggings(leggings);
@@ -92,6 +90,10 @@ public class TeamClass {
 
     public void removeBed() {
         bed = false;
+    }
+
+    public void removePlaye(PlayerClass playerClass) {
+        players.remove(playerClass);
     }
 
     private static int[] parseHexColor(String hex) {

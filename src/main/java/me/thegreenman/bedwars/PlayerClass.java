@@ -1,8 +1,10 @@
 package me.thegreenman.bedwars;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +88,21 @@ public class PlayerClass {
                 player.getInventory().addItem(new ItemStack(Material.DIAMOND_PICKAXE));
                 break;
         }
+    }
+
+    public void addarmor() {
+        player.getInventory().setChestplate(Team.chestplate);
+        player.getInventory().setHelmet(Team.helmet);
+
+        if (getArmorLevel() != 1) {
+            updateArmor();
+        }
+        else {
+            player.getInventory().setBoots(Team.boots);
+            player.getInventory().setLeggings(Team.leggings);
+        }
+        player.getInventory().addItem(new ItemStack(Material.WOODEN_SWORD));
+
     }
 
     public Player getPlayer() {

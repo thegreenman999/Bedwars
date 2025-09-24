@@ -36,12 +36,16 @@ public class BedBreakListener implements Listener {
         switch (event.getBlock().getType()) {
             case RED_BED:
                 GameStart.TeamRed.removeBed();
+                break;
             case GREEN_BED:
                 GameStart.TeamGreen.removeBed();
+                break;
             case PINK_BED:
                 GameStart.TeamPink.removeBed();
+                break;
             case BLUE_BED:
                 GameStart.TeamBlue.removeBed();
+                break;
         }
 
         event.setDropItems(false);

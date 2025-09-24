@@ -45,6 +45,8 @@ public class RespawnTask extends BukkitRunnable {
         if (debug) {
             Logger.log(playerClass.getName() + " has respawn");
         }
+
+        playerClass.addarmor();
     }
 
     public RespawnTask(PlayerClass player) {

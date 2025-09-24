@@ -32,9 +32,22 @@ public class deathListener implements Listener {
         }
         player.setGameMode(GameMode.SPECTATOR);
 
-        player.teleport(specSpawn);
+        player.getInventory().clear();
+
+
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                player.teleport(specSpawn);
+            }
+        }.runTaskLater(Bedwars.main, 2L); // to make the player start spec in the arena
+
         if (playerClass.Team.getBed()) {
             new RespawnTask(playerClass).runTaskLater(Bedwars.main, config.getInt("respawnTime")* 20L);
+        }
+        else {
+            playerClass.Team.removePlaye(playerClass);
         }
 
     }
