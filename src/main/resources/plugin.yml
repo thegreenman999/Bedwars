@@ -1,5 +1,5 @@
 name: bedwars
-version: '09-23-2'
+version: '09-24-3'
 main: me.thegreenman.bedwars.Bedwars
 api-version: '1.21.8'
 authors: [ thegreenman999 ]
@@ -11,4 +11,6 @@ commands:
   reload:
     usage: /<command>
   reset:
+    usage: /<command>
+  hub:
     usage: /<command>

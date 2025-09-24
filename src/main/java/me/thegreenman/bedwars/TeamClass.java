@@ -46,18 +46,22 @@ public class TeamClass {
 
         armorColor = Color.fromRGB(colorRGB[0], colorRGB[1], colorRGB[2]);
 
+        // boots
         LeatherArmorMeta bootsItemMeta = (LeatherArmorMeta) boots.getItemMeta();
         bootsItemMeta.setColor(armorColor);
         boots.setItemMeta(bootsItemMeta);
 
+        // leggings
         LeatherArmorMeta leggingsItemMeta = (LeatherArmorMeta) leggings.getItemMeta();
         leggingsItemMeta.setColor(armorColor);
         leggings.setItemMeta(leggingsItemMeta);
 
+        // chestplate
         LeatherArmorMeta chestplateItemMeta = (LeatherArmorMeta) chestplate.getItemMeta();
         chestplateItemMeta.setColor(armorColor);
         chestplate.setItemMeta(chestplateItemMeta);
 
+        // helmet
         LeatherArmorMeta helmetItemMeta = (LeatherArmorMeta) helmet.getItemMeta();
         helmetItemMeta.setColor(armorColor);
         helmetItemMeta.addEnchant(Enchantment.AQUA_AFFINITY, 1, true);

@@ -7,6 +7,7 @@ import me.thegreenman.bedwars.Bedwars;
 import me.thegreenman.bedwars.GameStart;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -18,36 +19,41 @@ public class BedBreakListener implements Listener {
         if (!gameOn) {
             return;
         }
-        if (!event.getBlock().getType().toString().endsWith("_BED")) {
-            return;
+        if (event.getBlock().getType().toString().endsWith("_BED")) {
+            if (Bedwars.lang.getString("bed-break-massage") == null) {
+                main.getLogger().severe("language file has a empty part called bed-break-massage");
+            }
+
+            Bukkit.broadcastMessage(Bedwars.lang.getString("bed-break-massage").replace("<bed>", switch (event.getBlock().getType().toString()) {
+                case "RED_BED" -> ChatColor.BOLD + "" + ChatColor.RED + "Reds Bed";
+                case "GREEN_BED" -> ChatColor.BOLD + "" + ChatColor.GREEN + "Greens Bed";
+                case "BLUE_BED" -> ChatColor.BOLD + "" + ChatColor.BLUE + "Blues Bed";
+                case "PINK_BED" -> ChatColor.BOLD + "" + ChatColor.LIGHT_PURPLE + "Pinks Bed";
+                default -> throw new IllegalStateException("Unexpected value: " + event.getBlock().getType().toString());
+            }));
+
+            switch (event.getBlock().getType()) {
+                case RED_BED:
+                    GameStart.TeamRed.removeBed();
+                    break;
+                case GREEN_BED:
+                    GameStart.TeamGreen.removeBed();
+                    break;
+                case PINK_BED:
+                    GameStart.TeamPink.removeBed();
+                    break;
+                case BLUE_BED:
+                    GameStart.TeamBlue.removeBed();
+                    break;
+            }
+
+            event.setDropItems(false);
         }
-        if (Bedwars.lang.getString("bed-break-massage") == null) {
-            main.getLogger().severe("language file has a empty part called bed-break-massage");
+        else if (!(event.getBlock().equals(Material.GREEN_WOOL) || event.getBlock().equals(Material.RED_WOOL) || event.getBlock().equals(Material.BLUE_WOOL) || event.getBlock().equals(Material.PINK_WOOL) ||
+                event.getBlock().equals(Material.GREEN_TERRACOTTA) || event.getBlock().equals(Material.RED_TERRACOTTA) || event.getBlock().equals(Material.BLUE_TERRACOTTA) || event.getBlock().equals(Material.PINK_TERRACOTTA) ||
+                event.getBlock().equals(Material.END_STONE) || event.getBlock().equals(Material.OAK_PLANKS))) {
+            event.setCancelled(true);
         }
 
-        Bukkit.broadcastMessage(Bedwars.lang.getString("bed-break-massage").replace("<bed>", switch (event.getBlock().getType().toString()) {
-            case "RED_BED" -> ChatColor.BOLD + "" + ChatColor.RED + "Reds Bed";
-            case "GREEN_BED" -> ChatColor.BOLD + "" + ChatColor.GREEN + "Greens Bed";
-            case "BLUE_BED" -> ChatColor.BOLD + "" + ChatColor.BLUE + "Blues Bed";
-            case "PINK_BED" -> ChatColor.BOLD + "" + ChatColor.LIGHT_PURPLE + "Pinks Bed";
-            default -> throw new IllegalStateException("Unexpected value: " + event.getBlock().getType().toString());
-        }));
-
-        switch (event.getBlock().getType()) {
-            case RED_BED:
-                GameStart.TeamRed.removeBed();
-                break;
-            case GREEN_BED:
-                GameStart.TeamGreen.removeBed();
-                break;
-            case PINK_BED:
-                GameStart.TeamPink.removeBed();
-                break;
-            case BLUE_BED:
-                GameStart.TeamBlue.removeBed();
-                break;
-        }
-
-        event.setDropItems(false);
     }
 }

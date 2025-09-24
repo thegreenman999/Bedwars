@@ -1,9 +1,6 @@
 package me.thegreenman.bedwars;
 
-import me.thegreenman.bedwars.commands.AdminCommand;
-import me.thegreenman.bedwars.commands.ResetCommand;
-import me.thegreenman.bedwars.commands.StartCommand;
-import me.thegreenman.bedwars.commands.reloadCommand;
+import me.thegreenman.bedwars.commands.*;
 import me.thegreenman.bedwars.listeners.eventListener.*;
 import me.thegreenman.bedwars.menys.AdminMeny;
 import me.thegreenman.bedwars.menys.ShopMeny;
@@ -112,6 +109,9 @@ public final class Bedwars extends JavaPlugin {
         // reset arena command
         getCommand("reset").setExecutor(new ResetCommand());
         getServer().getPluginManager().registerEvents(new ResetCommand(), this);
+
+        // hub command
+        getCommand("hub").setExecutor(new HubCommand());
 
 
         // event listerners

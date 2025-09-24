@@ -48,6 +48,7 @@ public class deathListener implements Listener {
         }
         else {
             playerClass.Team.removePlaye(playerClass);
+            playerClass.Team = null;
         }
 
     }
