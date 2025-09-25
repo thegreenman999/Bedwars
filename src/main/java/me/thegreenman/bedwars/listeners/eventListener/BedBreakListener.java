@@ -49,11 +49,5 @@ public class BedBreakListener implements Listener {
 
             event.setDropItems(false);
         }
-        else if (!(event.getBlock().equals(Material.GREEN_WOOL) || event.getBlock().equals(Material.RED_WOOL) || event.getBlock().equals(Material.BLUE_WOOL) || event.getBlock().equals(Material.PINK_WOOL) ||
-                event.getBlock().equals(Material.GREEN_TERRACOTTA) || event.getBlock().equals(Material.RED_TERRACOTTA) || event.getBlock().equals(Material.BLUE_TERRACOTTA) || event.getBlock().equals(Material.PINK_TERRACOTTA) ||
-                event.getBlock().equals(Material.END_STONE) || event.getBlock().equals(Material.OAK_PLANKS))) {
-            event.setCancelled(true);
-        }
-
     }
 }

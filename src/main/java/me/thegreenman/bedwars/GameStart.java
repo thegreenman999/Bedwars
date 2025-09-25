@@ -156,6 +156,8 @@ public class GameStart {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (blueTeamPlayers.contains(player) || redTeamPlayers.contains(player) || greenTeamPlayers.contains(player) || pinkTeamPlayers.contains(player)) {
                 player.setGameMode(GameMode.SURVIVAL);
+                player.setHealth(20.0);
+                player.setSaturation(20);
             }
             else {
                 player.setGameMode(GameMode.SPECTATOR);

@@ -21,7 +21,7 @@ Items:
     price-type: iron
   ironleg:
     price: 12
-    price-type: iron
+    price-type: gold
   dialeg:
     price: 6
     price-type: emerald

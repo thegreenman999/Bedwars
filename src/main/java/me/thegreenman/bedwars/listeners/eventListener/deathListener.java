@@ -43,7 +43,7 @@ public class deathListener implements Listener {
             }
         }.runTaskLater(Bedwars.main, 2L); // to make the player start spec in the arena
 
-        if (playerClass.Team.getBed()) {
+        if (playerClass.Team.getBed() && playerClass.Team != null) {
             new RespawnTask(playerClass).runTaskLater(Bedwars.main, config.getInt("respawnTime")* 20L);
         }
         else {

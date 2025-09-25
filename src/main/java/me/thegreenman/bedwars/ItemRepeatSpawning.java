@@ -58,7 +58,7 @@ public class ItemRepeatSpawning implements Listener {
                 spawnItemAtLocation(blueItemSpawnLoc, iron);
                 spawnItemAtLocation(pinkItemSpawnLoc, iron);
             }
-        }.runTaskTimer(main, 100L, 20 * 15); // tick * seconds
+        }.runTaskTimer(main, 100L, 20 * 5); // tick * seconds
     }
 
     public void startSpawnGold () {
@@ -71,7 +71,7 @@ public class ItemRepeatSpawning implements Listener {
                 spawnItemAtLocation(blueItemSpawnLoc, gold);
                 spawnItemAtLocation(pinkItemSpawnLoc, gold);
             }
-        }.runTaskTimer(main, 100L, 20 * 45); // tick * seconds
+        }.runTaskTimer(main, 100L, 20 * 20); // tick * seconds
     }
 
     public void startSpawnEmerald () {

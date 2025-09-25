@@ -17,7 +17,7 @@ public class HubCommand implements CommandExecutor {
 
         PlayerClass playerClass = PlayerClass.findplayer(player.getUniqueId());
 
-        if (playerClass.Team != null) {
+        if (playerClass != null && playerClass.Team != null) {
             return true;
         }
 

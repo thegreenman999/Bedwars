@@ -48,14 +48,14 @@ BlueTeam:
     z: -222.5
 
   shop-loc:
-    x: -318.5
+    x: -316.5
     y: -8
     z: -218.5
     yaw: 90.0
     pitch: 0.0
 
   # Is in Hex color code
-  Armor-color: B02E26
+  Armor-color: 3C44AA
 PinkTeam:
   spawn-loc:
     x: -320.5
@@ -94,16 +94,16 @@ RedTeam:
     pitch: 0.0
   Bed-loc:
     # loc of the Head of the bed
-    x: -399
+    x: -394
     y: -8
-    z: -138
+    z: -139
     # form the foot to head of the bed
     facing: west
 
   ore-gen-loc:
-    x: -399.5
+    x: -403.5
     y: -8.5
-    z: -222.5
+    z: -138.5
 
   shop-loc:
     x: -399.5
@@ -113,7 +113,7 @@ RedTeam:
     pitch: 0.0
 
   # Is in Hex color code
-  Armor-color: 3C44AA
+  Armor-color: B02E26
 middle:
   ore-gen1-loc:
     x: -320.5

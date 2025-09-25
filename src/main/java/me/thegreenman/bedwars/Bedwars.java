@@ -11,6 +11,7 @@ import org.bukkit.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Explosive;
+import org.bukkit.entity.Item;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -138,6 +139,7 @@ public final class Bedwars extends JavaPlugin {
         if (scorebord != null && !scorebord.isCancelled()) {
             scorebord.cancel();
         }
+
     }
 
 
@@ -146,7 +148,11 @@ public final class Bedwars extends JavaPlugin {
 
         PlayerClass.reset();
 
-        GameStart.itemRepeatSpawning.reset();
+        if (GameStart.itemRepeatSpawning != null) {
+            GameStart.itemRepeatSpawning.reset();
+        }
+
+        world.getEntities().forEach(Entity::remove);
 
         spawnEntitys.forEach(Entity::remove);
 
