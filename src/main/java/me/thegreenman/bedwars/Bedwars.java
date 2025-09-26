@@ -10,8 +10,6 @@ import me.thegreenman.bedwars.utils.Logger;
 import org.bukkit.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Explosive;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -109,8 +107,9 @@ public final class Bedwars extends JavaPlugin {
         getCommand("reload").setExecutor(new reloadCommand());
 
         // reset arena command
-        getCommand("reset").setExecutor(new ResetCommand());
-        getServer().getPluginManager().registerEvents(new ResetCommand(), this);
+        ResetCommand resetCommand = new ResetCommand();
+        getCommand("reset").setExecutor(resetCommand);
+        getServer().getPluginManager().registerEvents(resetCommand, this);
 
         // hub command
         getCommand("hub").setExecutor(new HubCommand());
@@ -188,7 +187,7 @@ public final class Bedwars extends JavaPlugin {
 
     public void reload() {
         // load language config
-        File file = new File(this.getDataFolder(), this.getConfig().getString("lang") + ".yml");
+        File file = new File(this.getDataFolder(), "lang/" + this.getConfig().getString("lang") + ".yml");
         lang = YamlConfiguration.loadConfiguration(file);
 
         // lobby config file
@@ -198,6 +197,10 @@ public final class Bedwars extends JavaPlugin {
         // load game config
         File file2 = new File(this.getDataFolder(), "game.yml");
         gameConfig = YamlConfiguration.loadConfiguration(file2);
+
+        // load game config
+        File file3 = new File(this.getDataFolder(), "shop.yml");
+        gameConfig = YamlConfiguration.loadConfiguration(file3);
 
         // load config
         config = (YamlConfiguration) this.getConfig();
