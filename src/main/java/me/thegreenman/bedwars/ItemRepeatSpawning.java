@@ -1,6 +1,7 @@
 package me.thegreenman.bedwars;
 
 import me.thegreenman.bedwars.utils.Logger;
+import static me.thegreenman.bedwars.Bedwars.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -12,8 +13,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
-
-import static me.thegreenman.bedwars.Bedwars.*;
 
 
 public class ItemRepeatSpawning implements Listener {
@@ -71,7 +70,7 @@ public class ItemRepeatSpawning implements Listener {
                 spawnItemAtLocation(blueItemSpawnLoc, gold);
                 spawnItemAtLocation(pinkItemSpawnLoc, gold);
             }
-        }.runTaskTimer(main, 100L, 20 * 20); // tick * seconds
+        }.runTaskTimer(main, 100L, 20 * 10); // tick * seconds
     }
 
     public void startSpawnEmerald () {
@@ -119,7 +118,6 @@ public class ItemRepeatSpawning implements Listener {
         if (SpawnIron != null && !SpawnIron.isCancelled()) {
             SpawnIron.cancel();
         }
-
     }
 
 }
