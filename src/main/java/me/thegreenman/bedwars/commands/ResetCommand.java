@@ -55,9 +55,6 @@ public class ResetCommand implements CommandExecutor, Listener {
         }
         List<Block> toRemove = new ArrayList<>();
         for (Block block : placeBlock) {
-            if (placeBlock.isEmpty()) {
-                break;
-            }
             if (!block.getLocation().getBlock().getType().equals(Material.AIR)) {
                 toRemove.add(block);
                 block.setType(Material.AIR);

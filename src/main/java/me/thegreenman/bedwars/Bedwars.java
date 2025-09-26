@@ -12,6 +12,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Explosive;
 import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -118,9 +119,9 @@ public final class Bedwars extends JavaPlugin {
         // event listerners
         getServer().getPluginManager().registerEvents(new BedBreakListener(), this);
 
-        getServer().getPluginManager().registerEvents(new deathListener(), this);
+        getServer().getPluginManager().registerEvents(new misListener(), this);
 
-        getServer().getPluginManager().registerEvents(new fireBallListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
 
         getServer().getPluginManager().registerEvents(new InteractAtEntityEventListener(), this);
 
@@ -152,7 +153,11 @@ public final class Bedwars extends JavaPlugin {
             GameStart.itemRepeatSpawning.reset();
         }
 
-        world.getEntities().forEach(Entity::remove);
+        world.getEntities().forEach(entity -> {
+            if (!entity.equals(Player.class)) {
+                entity.remove();
+            }
+        });
 
         spawnEntitys.forEach(Entity::remove);
 

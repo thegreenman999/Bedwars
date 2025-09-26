@@ -72,6 +72,7 @@ public class TeamClass {
 
     private void addarmor() {
         for (PlayerClass player : players) {
+            player.getPlayer().getInventory().clear();
             player.getPlayer().getInventory().setBoots(boots);
             player.getPlayer().getInventory().setLeggings(leggings);
             player.getPlayer().getInventory().setChestplate(chestplate);
@@ -128,4 +129,5 @@ public class TeamClass {
 
         return new int[]{r, g, b};
     }
+
 }
