@@ -2,15 +2,49 @@ name: bedwars
 version: '09-24-3'
 main: me.thegreenman.bedwars.Bedwars
 api-version: '1.21.8'
-authors: [ thegreenman999 ]
+author: thegreenman999
+description: An modern bedwars plugin
+website: https://github.com/thegreenman999/Bedwars
+
 commands:
   start:
+    permission: bedwars.start
+    description: Start the Game
     usage: /<command>
   adminmeny:
+    permission: bedwars.Admin.AdminMeny
+    description: edit the game settings
     usage: /<command>
   reload:
+    permission: bedwars.Admin.Reload
+    description: Reload the plugin configs
     usage: /<command>
   reset:
+    permission: bedwars.Admin.Reset
+    description: Resets the game
     usage: /<command>
   hub:
+    permission: bedwars.hub
+    description: tps you to hub
     usage: /<command>
+
+permissions:
+  bedwars.Admin.*:
+    description: wild card admin permission
+    default: op
+    children:
+      bedwars.Admin.AdminMeny: true
+      bedwars.Admin.Reload: true
+      bedwars.Admin.Reset: true
+  bedwars.Admin.AdminMeny:
+    description: Allows the adminmeny Command
+  bedwars.Admin.Reload:
+    description: Allows the Reload Command
+  bedwars.Admin.Reset:
+    description: allows the Reset Command
+  bedwars.start:
+    default: true
+    description: allows the start command
+  bedwars.hub:
+    default: true
+    description: allows the start command

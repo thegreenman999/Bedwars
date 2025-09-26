@@ -89,6 +89,7 @@ public class ScorebordTask implements Runnable {
         objective.getScore(greenTeamKey).setScore(3);
         objective.getScore(spaceTeamKey).setScore(2);
         objective.getScore(killsTeamKey).setScore(1);
+
         player.setScoreboard(scoreboard);
     }
 
