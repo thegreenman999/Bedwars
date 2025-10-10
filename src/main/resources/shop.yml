@@ -31,10 +31,10 @@ Items:
     price-type: iron
   ironPick:
     price: 6
-    price-type: iron
+    price-type: gold
   diaPick:
     price: 6
-    price-type: iron
+    price-type: emerald
 
   woodAxe:
     price: 6

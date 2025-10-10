@@ -11,7 +11,7 @@ GreenTeam:
     y: -8
     z: -139
     # form the foot to head of the med
-    facing: east
+    facing: west
 
   ore-gen-loc:
     x: -237.5

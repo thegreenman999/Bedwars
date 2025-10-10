@@ -7,6 +7,8 @@ Game-start-massage: The game has started
 Shop-Price-massage: Price is <price> <type>
 Shop-setLore-massage: Shop-Price-massage is missing <price> or <type> or price type is missing for
 
+Death-massage: <player1> was killed by <player2>
+
 Shop:
   Menys:
     Quick-name: Quick buy

@@ -47,6 +47,7 @@ public class RespawnTask extends BukkitRunnable {
         }
 
         playerClass.addarmor();
+        playerClass.addtools();
     }
 
     public RespawnTask(PlayerClass player) {

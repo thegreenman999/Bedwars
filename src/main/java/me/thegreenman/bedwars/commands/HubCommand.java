@@ -2,6 +2,7 @@ package me.thegreenman.bedwars.commands;
 
 import me.thegreenman.bedwars.Bedwars;
 import me.thegreenman.bedwars.PlayerClass;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,6 +23,7 @@ public class HubCommand implements CommandExecutor {
         }
 
         player.teleport(Bedwars.world.getSpawnLocation());
+        player.setGameMode(GameMode.SURVIVAL);
 
 
         return true;

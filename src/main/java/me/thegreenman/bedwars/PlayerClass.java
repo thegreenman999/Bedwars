@@ -101,8 +101,33 @@ public class PlayerClass {
             player.getInventory().setBoots(Team.boots);
             player.getInventory().setLeggings(Team.leggings);
         }
-        player.getInventory().addItem(new ItemStack(Material.WOODEN_SWORD));
 
+    }
+
+    public void addtools() {
+        switch (pickaxeLevel) {
+            case 1:
+                player.getInventory().addItem(new ItemStack(Material.WOODEN_PICKAXE));
+                break;
+            case 2:
+                player.getInventory().addItem(new ItemStack(Material.IRON_PICKAXE));
+                break;
+            case 3:
+                player.getInventory().addItem(new ItemStack(Material.DIAMOND_PICKAXE));
+                break;
+        }
+        switch (axeLevel) {
+            case 1:
+                player.getInventory().addItem(new ItemStack(Material.WOODEN_AXE));
+                break;
+            case 2:
+                player.getInventory().addItem(new ItemStack(Material.IRON_AXE));
+                break;
+            case 3:
+                player.getInventory().addItem(new ItemStack(Material.DIAMOND_AXE));
+                break;
+        }
+        player.getInventory().addItem(new ItemStack(Material.WOODEN_SWORD));
     }
 
     public Player getPlayer() {
@@ -117,6 +142,9 @@ public class PlayerClass {
         return Kills;
     }
 
+    public void addKills() {
+        Kills++;
+    }
 
     public int getArmorLevel() {
         return armorLevel;
@@ -134,7 +162,9 @@ public class PlayerClass {
         pickaxeLevel++;
     }
     public void subPickaxeLevel() {
-        pickaxeLevel--;
+        if (pickaxeLevel > 0){
+            pickaxeLevel--;
+        }
     }
 
     public int getAxeLevel() {
@@ -145,7 +175,9 @@ public class PlayerClass {
         axeLevel++;
     }
     public void subAxeLevel() {
-        axeLevel--;
+        if (axeLevel > 0){
+            axeLevel--;
+        }
     }
 
 
@@ -181,4 +213,6 @@ public class PlayerClass {
     public static void reset() {
         playerClasses = new ArrayList<>();
     }
+
+
 }

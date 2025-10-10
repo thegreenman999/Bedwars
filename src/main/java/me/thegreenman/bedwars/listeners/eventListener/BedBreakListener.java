@@ -1,16 +1,17 @@
 package me.thegreenman.bedwars.listeners.eventListener;
 
-import static me.thegreenman.bedwars.Bedwars.gameOn;
-import static me.thegreenman.bedwars.Bedwars.main;
 import me.thegreenman.bedwars.Bedwars;
 
 import me.thegreenman.bedwars.GameStart;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+
+import static me.thegreenman.bedwars.Bedwars.*;
 
 public class BedBreakListener implements Listener {
 
@@ -35,15 +36,19 @@ public class BedBreakListener implements Listener {
             switch (event.getBlock().getType()) {
                 case RED_BED:
                     GameStart.TeamRed.removeBed();
+                    removeBeds(new Location(world, gameConfig.getInt("RedTeam.Bed-loc.x"), gameConfig.getInt("RedTeam.Bed-loc.y"), gameConfig.getInt("RedTeam.Bed-loc.z")), gameConfig.getString("RedTeam.Bed-loc.facing"));
                     break;
                 case GREEN_BED:
                     GameStart.TeamGreen.removeBed();
+                    removeBeds(new Location(world, gameConfig.getInt("GreenTeam.Bed-loc.x"), gameConfig.getInt("GreenTeam.Bed-loc.y"), gameConfig.getInt("GreenTeam.Bed-loc.z")), gameConfig.getString("GreenTeam.Bed-loc.facing"));
                     break;
                 case PINK_BED:
                     GameStart.TeamPink.removeBed();
+                    removeBeds(new Location(world, gameConfig.getInt("PinkTeam.Bed-loc.x"), gameConfig.getInt("PinkTeam.Bed-loc.y"), gameConfig.getInt("PinkTeam.Bed-loc.z")), gameConfig.getString("PinkTeam.Bed-loc.facing"));
                     break;
                 case BLUE_BED:
                     GameStart.TeamBlue.removeBed();
+                    removeBeds(new Location(world, gameConfig.getInt("BlueTeam.Bed-loc.x"), gameConfig.getInt("BlueTeam.Bed-loc.y"), gameConfig.getInt("BlueTeam.Bed-loc.z")), gameConfig.getString("BlueTeam.Bed-loc.facing"));
                     break;
             }
 

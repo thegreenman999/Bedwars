@@ -10,6 +10,7 @@ import me.thegreenman.bedwars.utils.Logger;
 import org.bukkit.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -126,6 +127,8 @@ public final class Bedwars extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new MenyListener(), this);
 
+        getServer().getPluginManager().registerEvents(new DeathListener(), this);
+
         world.setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
         world.setGameRule(GameRule.KEEP_INVENTORY, true);
 
@@ -153,17 +156,17 @@ public final class Bedwars extends JavaPlugin {
         }
 
         world.getEntities().forEach(entity -> {
-            if (!entity.equals(Player.class)) {
+            if (!entity.getType().equals(EntityType.PLAYER)) {
                 entity.remove();
             }
         });
 
         spawnEntitys.forEach(Entity::remove);
 
-        removeBeds(new Location(world, gameConfig.getInt("PinkTeam.Bed-loc.x"), gameConfig.getInt("PinkTeam.Bed-loc.y"), gameConfig.getInt("PinkTeam.Bed-loc.z")), gameConfig.getString("PinkTeam.Bed-loc.facing"));
-        removeBeds(new Location(world, gameConfig.getInt("GreenTeam.Bed-loc.x"), gameConfig.getInt("GreenTeam.Bed-loc.y"), gameConfig.getInt("GreenTeam.Bed-loc.z")), gameConfig.getString("GreenTeam.Bed-loc.facing"));
-        removeBeds(new Location(world, gameConfig.getInt("RedTeam.Bed-loc.x"), gameConfig.getInt("RedTeam.Bed-loc.y"), gameConfig.getInt("RedTeam.Bed-loc.z")), gameConfig.getString("RedTeam.Bed-loc.facing"));
-        removeBeds(new Location(world, gameConfig.getInt("BlueTeam.Bed-loc.x"), gameConfig.getInt("BlueTeam.Bed-loc.y"), gameConfig.getInt("BlueTeam.Bed-loc.z")), gameConfig.getString("BlueTeam.Bed-loc.facing"));
+        removeBeds(new Location(world, gameConfig.getInt("PinkTeam.Bed-loc.x"), gameConfig.getInt("PinkTeam.Bed-loc.y"), gameConfig.getInt("PinkTeam.Bed-loc.z")), gameConfig.getString("PinkTeam.Bed-loc.facing")); // Pink Bed
+        removeBeds(new Location(world, gameConfig.getInt("GreenTeam.Bed-loc.x"), gameConfig.getInt("GreenTeam.Bed-loc.y"), gameConfig.getInt("GreenTeam.Bed-loc.z")), gameConfig.getString("GreenTeam.Bed-loc.facing")); // Green Bed
+        removeBeds(new Location(world, gameConfig.getInt("RedTeam.Bed-loc.x"), gameConfig.getInt("RedTeam.Bed-loc.y"), gameConfig.getInt("RedTeam.Bed-loc.z")), gameConfig.getString("RedTeam.Bed-loc.facing")); // Red Bed
+        removeBeds(new Location(world, gameConfig.getInt("BlueTeam.Bed-loc.x"), gameConfig.getInt("BlueTeam.Bed-loc.y"), gameConfig.getInt("BlueTeam.Bed-loc.z")), gameConfig.getString("BlueTeam.Bed-loc.facing")); // Blue Bed
     }
 
     public static void removeBeds(Location location, String facing) {

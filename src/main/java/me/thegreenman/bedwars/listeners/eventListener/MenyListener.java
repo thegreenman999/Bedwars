@@ -1,28 +1,25 @@
 package me.thegreenman.bedwars.listeners.eventListener;
 
+import static me.thegreenman.bedwars.menys.ShopMeny.*;
+import static me.thegreenman.bedwars.Bedwars.shopConfig;
+
 import me.thegreenman.bedwars.PlayerClass;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.Utility;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 
-import static me.thegreenman.bedwars.Bedwars.debug;
-import static me.thegreenman.bedwars.Bedwars.shopConfig;
-import static me.thegreenman.bedwars.menys.ShopMeny.*;
 
 public class MenyListener implements Listener {
 
     @EventHandler
     public void onInventoryClickEvent(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-
-        String title = event.getView().getTitle();
-        if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools") && !title.equals("Weapons")) {
-            return;
-        }
 
         PlayerClass playerClass = PlayerClass.findplayer(player.getUniqueId());
 
@@ -33,13 +30,24 @@ public class MenyListener implements Listener {
         if (event.getCurrentItem() == null) {
             return;
         }
-        if (event.isShiftClick()) {
-            event.setCancelled(true);
-        }
 
         ItemStack item = event.getCurrentItem();
 //        if (event.getClickedInventory().)
 
+        String title = event.getView().getTitle();
+        if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools") && !title.equals("Weapons")) {
+            return;
+        }
+        else if (event.getInventory().getType().equals(InventoryType.PLAYER)) {
+            if (event.getSlot() == 36 || event.getSlot() == 37 || event.getSlot() == 38 || event.getSlot() == 39) {
+                event.setCancelled(true);
+                Bukkit.broadcastMessage("help");
+                return;
+            }
+        }
+        if (event.isShiftClick()) {
+            event.setCancelled(true);
+        }
 
 
 //          ===================
@@ -267,7 +275,7 @@ public class MenyListener implements Listener {
 //              Utilitys
 //        =====================
         else if (item.equals(shears)) {
-            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.shears.price")) || !player.getInventory().contains(Material.SHEARS)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.shears.price")) && !player.getInventory().contains(Material.SHEARS)) {
 
                 removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.shears.price"));
 

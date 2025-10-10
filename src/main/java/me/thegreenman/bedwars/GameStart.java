@@ -21,9 +21,6 @@ import static me.thegreenman.bedwars.Bedwars.*;
 
 public class GameStart {
 
-    // start ore generators
-
-
     public static TeamClass TeamRed = null;
     public static TeamClass TeamBlue = null;
     public static TeamClass TeamPink = null;

@@ -9,13 +9,12 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 
-public class ItemRepeatSpawning implements Listener {
+public class ItemRepeatSpawning {
     public ItemStack iron = new ItemStack(Material.IRON_INGOT, 1);
     public ItemStack gold = new ItemStack(Material.GOLD_INGOT, 1);
     public ItemStack emerald = new ItemStack(Material.EMERALD, 1);
@@ -57,7 +56,7 @@ public class ItemRepeatSpawning implements Listener {
                 spawnItemAtLocation(blueItemSpawnLoc, iron);
                 spawnItemAtLocation(pinkItemSpawnLoc, iron);
             }
-        }.runTaskTimer(main, 100L, 20 * 5); // tick * seconds
+        }.runTaskTimer(main, 100L, 20 * 2); // tick * seconds
     }
 
     public void startSpawnGold () {
@@ -70,7 +69,7 @@ public class ItemRepeatSpawning implements Listener {
                 spawnItemAtLocation(blueItemSpawnLoc, gold);
                 spawnItemAtLocation(pinkItemSpawnLoc, gold);
             }
-        }.runTaskTimer(main, 100L, 20 * 10); // tick * seconds
+        }.runTaskTimer(main, 100L, 20 * 12); // tick * seconds
     }
 
     public void startSpawnEmerald () {

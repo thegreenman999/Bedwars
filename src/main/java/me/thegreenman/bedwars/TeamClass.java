@@ -30,6 +30,8 @@ public class TeamClass {
 
         for (PlayerClass playerClass : players) {
             playerClass.Team = this;
+            playerClass.getPlayer().getInventory().clear();
+            playerClass.addarmor();
         }
 
         this.color = color;
