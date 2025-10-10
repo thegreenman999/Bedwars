@@ -1,6 +1,5 @@
 package me.thegreenman.bedwars.listeners.eventListener;
 
-import io.papermc.paper.connection.PlayerLoginConnection;
 import org.bukkit.Material;
 import org.bukkit.entity.Fireball;
 import org.bukkit.event.EventHandler;

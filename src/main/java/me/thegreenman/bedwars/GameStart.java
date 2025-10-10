@@ -2,16 +2,13 @@ package me.thegreenman.bedwars;
 
 import me.thegreenman.bedwars.utils.Logger;
 
-import net.kyori.adventure.text.Component;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Bed;
-import org.bukkit.block.data.type.Gate;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
