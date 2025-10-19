@@ -15,6 +15,10 @@ Items:
     price: 12
     price-type: iron
     amount: 16
+  obsidian:
+    price: 4
+    price-type: emerald
+    amount: 4
 
   chainmailleg:
     price: 24
@@ -65,3 +69,11 @@ Items:
   fireCharge:
     price: 40
     price-type: iron
+  tnt:
+    price: 8
+    price-type: gold
+  enderpearl:
+    price: 4
+    price-type: emerald
+
+

@@ -124,6 +124,15 @@ public class MenyListener implements Listener {
 
             }
         }
+        else if (item.equals(obsidian)) {
+            if (player.getInventory().contains(Material.IRON_INGOT, shopConfig.getInt("Items.obsidian.price"))) {
+
+                removeItems(player, Material.IRON_INGOT, shopConfig.getInt("Items.obsidian.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.OAK_PLANKS, shopConfig.getInt("Items.obsidian.amount")));
+
+            }
+        }
 //      ==================
 //            Armor
 //      ==================
@@ -295,6 +304,22 @@ public class MenyListener implements Listener {
             if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.goldApple.price"))) {
 
                 removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.goldApple.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
+            }
+        }
+        else if (item.equals(enderpearl)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.enderpearl.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.enderpearl.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
+            }
+        }
+        else if (item.equals(tnt)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.tnt.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.tnt.price"));
 
                 player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
             }

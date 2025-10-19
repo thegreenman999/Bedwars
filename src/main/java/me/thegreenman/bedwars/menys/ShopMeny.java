@@ -4,7 +4,6 @@ import me.thegreenman.bedwars.PlayerClass;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -24,6 +23,7 @@ public class ShopMeny {
     public static ItemStack terracotta = new ItemStack(Material.TERRACOTTA, shopConfig.getInt("Items.terracotta.amount"));
     public static ItemStack endstone = new ItemStack(Material.END_STONE, shopConfig.getInt("Items.endstone.amount"));
     public static ItemStack wood = new ItemStack(Material.OAK_PLANKS, shopConfig.getInt("Items.wood.amount"));
+    public static ItemStack obsidian = new ItemStack(Material.OBSIDIAN, shopConfig.getInt("Items.obsidian.amount"));
 
     // swords
     public static ItemStack stonesword = new ItemStack(Material.STONE_SWORD);
@@ -54,7 +54,7 @@ public class ShopMeny {
     public static ItemStack windCharge = new ItemStack(Material.WIND_CHARGE);
     public static ItemStack tnt = new ItemStack(Material.TNT);
     public static ItemStack shears = new ItemStack(Material.SHEARS);
-    public static ItemStack ender = new ItemStack(Material.ENDER_PEARL);
+    public static ItemStack enderpearl = new ItemStack(Material.ENDER_PEARL);
     public static ItemStack water = new ItemStack(Material.WATER_BUCKET);
 
     // meny Items
@@ -140,13 +140,13 @@ public class ShopMeny {
         });
 
         meny.setItem(41, gapple);
-        meny.setItem(42, ender);
+        meny.setItem(42, enderpearl);
         meny.setItem(43, fireCharge);
         meny.setItem(25, tnt);
         meny.setItem(34, water);
 
 //        meny.setItem(24, invsee);
-        meny.setItem(33, jump);
+//        meny.setItem(33, jump);
 
         meny.setItem(23, bow);
         meny.setItem(32, arrows);
@@ -188,6 +188,7 @@ public class ShopMeny {
         meny.setItem(20, terracotta);
         meny.setItem(21, endstone);
         meny.setItem(22, wood);
+        meny.setItem(22, obsidian);
 
 
         player.getPlayer().updateInventory();
@@ -264,7 +265,7 @@ public class ShopMeny {
         meny.setItem(19, gapple);
         meny.setItem(20, fireCharge);
         meny.setItem(21, tnt);
-        meny.setItem(22, ender);
+        meny.setItem(22, enderpearl);
         meny.setItem(23, water);
 
 
@@ -446,6 +447,20 @@ public class ShopMeny {
             }
         }
         wood.setItemMeta(woodMeta);
+
+        ItemMeta obsidianMeta = obsidian.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.obsidian.price-type") != null){
+                woodMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.obsidian.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.obsidian.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " obsidian");
+            }
+        }
+        obsidian.setItemMeta(obsidianMeta);
     }
 
     public void setToolsLore() {
@@ -576,6 +591,34 @@ public class ShopMeny {
             }
         }
         fireCharge.setItemMeta(fireChargeMeta);
+
+        ItemMeta enderpearlMeta = enderpearl.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.enderpearl.price-type") != null) {
+                fireChargeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.enderpearl.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.enderpearl.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " ender pearl");
+            }
+        }
+        enderpearl.setItemMeta(enderpearlMeta);
+
+        ItemMeta tntMeta = tnt.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.tnt.price-type") != null) {
+                fireChargeMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.tnt.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.tnt.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " tnt");
+            }
+        }
+        tnt.setItemMeta(tntMeta);
     }
 
     public void setWeapensLore() {

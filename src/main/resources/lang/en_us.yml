@@ -7,7 +7,9 @@ Game-start-massage: The game has started
 Shop-Price-massage: Price is <price> <type>
 Shop-setLore-massage: Shop-Price-massage is missing <price> or <type> or price type is missing for
 
-Death-massage: <player1> was killed by <player2>
+Death-massage: <player> was killed by <Killer> <final>
+
+Team-win-massage: <team> has won the game
 
 Shop:
   Menys:

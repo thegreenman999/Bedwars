@@ -121,8 +121,6 @@ public final class Bedwars extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new misListener(), this);
 
-        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
-
         getServer().getPluginManager().registerEvents(new InteractAtEntityEventListener(), this);
 
         getServer().getPluginManager().registerEvents(new MenyListener(), this);

@@ -60,6 +60,8 @@ public class ResetCommand implements CommandExecutor, Listener {
                 block.setType(Material.AIR);
             }
         }
+        // TODO: clear all chest in the arena
         placeBlock.removeAll(toRemove);
     }
+
 }

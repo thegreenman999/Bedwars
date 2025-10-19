@@ -5,11 +5,16 @@ import me.thegreenman.bedwars.utils.Logger;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static me.thegreenman.bedwars.Bedwars.*;
 
 public class RespawnTask extends BukkitRunnable {
     private PlayerClass playerClass;
+    public static List<BukkitTask> respawnTaskList = new ArrayList<>();
 
     @Override
     public void run() {
@@ -48,6 +53,7 @@ public class RespawnTask extends BukkitRunnable {
 
         playerClass.addarmor();
         playerClass.addtools();
+        respawnTaskList.remove(this);
     }
 
     public RespawnTask(PlayerClass player) {

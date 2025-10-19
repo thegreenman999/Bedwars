@@ -7,6 +7,10 @@ Game-start-massage: Spelet har startat
 Shop-Price-massage: Priset är <price> <type>
 Shop-setLore-massage: Shop-Price-massage saknar <price> eller <type> eller price type saknas för
 
+Death-massage: <player> var dödad av <Killer> <final>
+
+Team-win-massage: <team> har vinit spelet
+
 Shop:
   Menys:
     Quick-name: Snabb köp

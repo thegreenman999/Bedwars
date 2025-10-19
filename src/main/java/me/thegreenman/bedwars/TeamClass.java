@@ -99,7 +99,7 @@ public class TeamClass {
         bed = false;
     }
 
-    public void removePlaye(PlayerClass playerClass) {
+    public void removePlayer(PlayerClass playerClass) {
         players.remove(playerClass);
     }
 
