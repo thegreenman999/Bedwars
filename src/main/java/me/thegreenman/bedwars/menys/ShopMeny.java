@@ -46,7 +46,9 @@ public class ShopMeny {
     public static ItemStack diaaxe = new ItemStack(Material.DIAMOND_AXE);
 
     public static ItemStack bow = new ItemStack(Material.BOW);
-    public static ItemStack arrows = new ItemStack(Material.ARROW, 6);
+    public static ItemStack bowpower = new ItemStack(Material.BOW);
+    public static ItemStack bowpunch = new ItemStack(Material.BOW);
+    public static ItemStack arrows = new ItemStack(Material.ARROW, shopConfig.getInt("Items.arrows.amount"));
 
     // Utilitys
     public static ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE);
@@ -300,6 +302,9 @@ public class ShopMeny {
         meny.setItem(21, diasword);
 
         meny.setItem(28, bow);
+        meny.setItem(29, bowpower);
+        meny.setItem(30, bowpunch);
+        meny.setItem(31, arrows);
 
         player.getPlayer().updateInventory();
     }
@@ -345,6 +350,7 @@ public class ShopMeny {
 
         setBlocksLore();
         setToolsLore();
+        setBowsLore();
         setUtilitysLore();
         setWeapensLore();
 
@@ -389,6 +395,50 @@ public class ShopMeny {
             }
         }
         dialeg.setItemMeta(diaLegMeta);
+    }
+
+    private void setBowsLore() {
+        ItemMeta bowMeta = bow.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.bow.price-type") != null){
+                bowMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.bow.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.bow.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " bow");
+            }
+        }
+        bow.setItemMeta(bowMeta);
+
+        ItemMeta bowpowerMeta = bowpower.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.bowpower.price-type") != null){
+                bowpowerMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.bowpower.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.bowpower.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " bowpower");
+            }
+        }
+        bowpower.setItemMeta(bowpowerMeta);
+
+        ItemMeta bowpunchMeta = bowpunch.getItemMeta();
+        if (lang.getString("Shop-Price-massage") != null) {
+            if (lang.getString("Shop-Price-massage").contains("<price>") && shopConfig.getString("Items.bowpunch.price-type") != null){
+                bowpunchMeta.setLore(List.of(ChatColor.GRAY + lang.getString("Shop-Price-massage")
+                        .replace("<price>", String.valueOf(shopConfig.getInt("Items.bowpunch.price")))
+                        .replace("<type>", Objects.requireNonNull(shopConfig.getString("Items.bowpunch.price-type")))
+                ));
+            }
+            else {
+                main.getLogger().severe(lang.getString("Shop-setLore-massage") + " bowpunch");
+            }
+        }
+        bowpunch.setItemMeta(bowpunchMeta);
     }
 
     public void setBlocksLore() {

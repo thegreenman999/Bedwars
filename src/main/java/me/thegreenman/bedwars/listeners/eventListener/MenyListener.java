@@ -1,5 +1,6 @@
 package me.thegreenman.bedwars.listeners.eventListener;
 
+import static me.thegreenman.bedwars.Bedwars.gameConfig;
 import static me.thegreenman.bedwars.menys.ShopMeny.*;
 import static me.thegreenman.bedwars.Bedwars.shopConfig;
 
@@ -7,6 +8,7 @@ import me.thegreenman.bedwars.PlayerClass;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +18,16 @@ import org.bukkit.inventory.ItemStack;
 
 
 public class MenyListener implements Listener {
+
+    public static ItemStack getBowPower = new ItemStack(Material.BOW);
+    public static ItemStack getBowpunch = new ItemStack(Material.BOW);
+
+    public MenyListener() {
+        getBowPower.addEnchantment(Enchantment.POWER, 1);
+
+        getBowpunch.addEnchantment(Enchantment.POWER, 1);
+        getBowpunch.addEnchantment(Enchantment.PUNCH, 1);
+    }
 
     @EventHandler
     public void onInventoryClickEvent(InventoryClickEvent event) {
@@ -34,7 +46,7 @@ public class MenyListener implements Listener {
         ItemStack item = event.getCurrentItem();
 //        if (event.getClickedInventory().)
 
-        String title = event.getView().getTitle();
+        String title = event.getView().title().toString();
         if (!title.equals("Shop") && !title.equals("Blocks") && !title.equals("Utilitys") && !title.equals("Tools") && !title.equals("Weapons")) {
             return;
         }
@@ -280,6 +292,43 @@ public class MenyListener implements Listener {
 
             }
         }
+//        =====================
+//                Bows
+//        =====================
+        else if (item.equals(bow)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.bow.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.bow.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.BOW));
+
+            }
+        }
+        else if (item.equals(bowpower)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.bowpower.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.bowpower.price"));
+
+
+            }
+        }
+        else if (item.equals(diasword)) {
+            if (player.getInventory().contains(Material.EMERALD, shopConfig.getInt("Items.diaSword.price"))) {
+
+                removeItems(player, Material.EMERALD, shopConfig.getInt("Items.diaSword.price"));
+
+
+            }
+        }
+        else if (item.equals(arrows)) {
+            if (player.getInventory().contains(Material.GOLD_INGOT, shopConfig.getInt("Items.arrows.price"))) {
+
+                removeItems(player, Material.GOLD_INGOT, shopConfig.getInt("Items.arrows.price"));
+
+                player.getInventory().addItem(new ItemStack(Material.ARROW, gameConfig.getInt("Items.arrows.amount")));
+            }
+        }
+
 //        =====================
 //              Utilitys
 //        =====================

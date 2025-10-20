@@ -60,6 +60,20 @@ Items:
     price: 2
     price-type: emerald
 
+  bow:
+    price: 12
+    price-type: gold
+  bowpower:
+    price: 20
+    price-type: gold
+  bowpunch:
+    price: 6
+    price-type: emerald
+  arrows:
+    price: 2
+    price-type: gold
+    amount: 6
+
   shears:
     price: 20
     price-type: iron
