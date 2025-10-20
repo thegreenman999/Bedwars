@@ -25,6 +25,11 @@ GreenTeam:
     yaw: 180.0
     pitch: 0.0
 
+  chest-loc:
+    x: -245
+    y: -8
+    z: -135
+
   # Is in Hex color code
   Armor-color: 5E7C16
 BlueTeam:
@@ -54,6 +59,11 @@ BlueTeam:
     yaw: 90.0
     pitch: 0.0
 
+  chest-loc:
+    x: -317
+    y: -8
+    z: -216
+
   # Is in Hex color code
   Armor-color: 3C44AA
 PinkTeam:
@@ -82,6 +92,10 @@ PinkTeam:
     z: -60.5
     yaw: -90.0
     pitch: 0.0
+  chest-loc:
+    x: -325
+    y: -8
+    z: -64
 
   # Is in Hex color code
   Armor-color: F38BAA
@@ -111,6 +125,11 @@ RedTeam:
     z: -142.5
     yaw: 0.0
     pitch: 0.0
+
+  chest-loc:
+    x: -397
+    y: -8
+    z: -143
 
   # Is in Hex color code
   Armor-color: B02E26
